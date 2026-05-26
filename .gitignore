@@ -1,15 +1,26 @@
+# Локальная работа — не в репозитории
+/prototype/
+/Коды старые от редактирования дизайна/
+*.zip
+newanons.png
+Главная*.html
+ИСТОРИЯ-ЧАТА.md
+код тестового*.html
+
+# В deploy/ — служебное, не для сайта
+deploy/_*
+deploy/build_header_banner.py
+deploy/kovrov-theme-test.css
+deploy/ИНСТРУКЦИЯ-*.md
+deploy/*.png
+
 # OS / editor
 .DS_Store
 Thumbs.db
-*.swp
-*~
 
-# Python (build_header_banner.py)
+# Python
 __pycache__/
-*.py[cod]
 .venv/
-venv/
 
-# Secrets
 .env
 .env.*
