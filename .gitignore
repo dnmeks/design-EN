@@ -1,5 +1,6 @@
 # Локальная работа — не в репозитории
 /prototype/
+/deploy/
 /Коды старые от редактирования дизайна/
 *.zip
 newanons.png
@@ -7,12 +8,14 @@ newanons.png
 ИСТОРИЯ-ЧАТА.md
 код тестового*.html
 
-# В deploy/ — служебное, не для сайта
-deploy/_*
-deploy/build_header_banner.py
-deploy/kovrov-theme-test.css
-deploy/ИНСТРУКЦИЯ-*.md
-deploy/*.png
+# Служебное (если лежит в корне локально)
+/_*
+/build_header_banner.py
+/kovrov-theme-test.css
+/ИНСТРУКЦИЯ-*.md
+/kovrov-header*.png
+/kovrov_fon_top*.png
+/роба*.png
 
 # OS / editor
 .DS_Store
