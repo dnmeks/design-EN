@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kovrov EN — прототип главной</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="proto-note" role="note">
+    Скрываем только <code>#boxComingGames</code>. ЛК, орг-панель, меню под шапкой — состав как на сайте.
+  </div>
+
+  <header class="site-header">
+    <div class="header-bg" aria-hidden="true"></div>
+    <div class="header-inner">
+      <a class="logo" href="/">
+        <img src="https://d1.endata.cx/images/personal/83308/dnk_logo3.png" alt="Encounter Ковров" width="180" height="52" />
+      </a>
+    </div>
+  </header>
+
+  <nav class="main-menu-bar menuWrap" aria-label="Главное меню домена">
+    <div class="main-menu-bar__inner">
+      <a class="main-menu-bar__home" href="/" title="Главная">
+        <img src="https://cdn.endata.cx/images/icons/mainmenu/left1.gif" alt="«" width="11" height="11" />
+      </a>
+      <ul class="main-menu-bar__list">
+        <li class="has-sub"><a href="#">Игры</a></li>
+        <li class="has-sub"><a href="#">Сеть</a></li>
+        <li class="has-sub"><a href="#">Медиа</a></li>
+        <li class="has-sub"><a href="#">Связь</a></li>
+        <li><a href="#" class="root">Форум</a></li>
+      </ul>
+      <a class="main-menu-bar__mobile wapLink" href="//m.kovrov.en.cx/">Мобильная версия</a>
+    </div>
+  </nav>
+
+  <main class="layout layout--three-col">
+    <aside class="sidebar sidebar--left leftPnl leftMenu" id="tdContentLeft">
+      <section class="panel panel--lk enPnl-user" id="boxUser">
+        <div class="user-box__head">
+          <a class="user-box__login white bold" href="#">многабукафф</a>
+          <span class="user-box__id">(id&nbsp;<span>144762</span>)</span>
+          <a class="user-box__name yellow_lihgt" href="#">Дмитрий Колядюк</a>
+          <p class="user-box__rank h9">2 139,95 / <strong>Организатор</strong></p>
+        </div>
+        <nav class="user-box__nav" aria-label="Личный кабинет">
+          <a class="lm" href="#">Моя почта</a>
+          <a class="lm lm--highlight" href="#">Моё личное дело</a>
+          <a class="lm" href="#">Мой баланс</a>
+          <a class="lm" href="#">Моя команда</a>
+          <a class="user-box__logout" href="#">Выход</a>
+        </nav>
+      </section>
+
+      <section class="panel panel--org enPnl-org adminPnlLeft" id="adminPanelLinkDiv">
+        <a class="lm lm--highlight org-link" href="#">
+          Администраторская
+          <img src="https://cdn.endata.cx/images/icons/usermenu/dblRArrowYellow.gif" alt="" width="9" height="8" class="org-link__arrow" />
+        </a>
+        <a class="lm" href="#">Оргштаб</a>
+      </section>
+
+      <section class="panel panel--compact" id="boxOnlineHelp">
+        <div class="social-en-icons">
+          <a href="#" title="Twitter"><img src="https://d1.endata.cx/images/personal/1/t.ico.png" alt="" width="27" height="26" /></a>
+          <a href="#" title="VK"><img src="https://d1.endata.cx/images/personal/1/v.ico.png" alt="" width="27" height="26" /></a>
+          <a href="#" title="Facebook"><img src="https://d1.endata.cx/images/personal/1/f.ico.png" alt="" width="26" height="26" /></a>
+        </div>
+      </section>
+    </aside>
+
+    <div class="content center-column" id="tdContentCenter">
+      <section class="hero-strip">
+        <h1>Игры домена Ковров</h1>
+        <p class="hero-sub" id="hero-season-name">Сезон</p>
+        <div class="hero-actions">
+          <a class="chip" id="chip-reglement" href="#">Регламент сезона</a>
+          <a class="chip" id="chip-standings" href="#">Турнирная таблица</a>
+        </div>
+      </section>
+
+      <section class="calendar-compact panel">
+        <h2 class="panel-title panel-title--lg">Календарь игр домена</h2>
+        <div class="calendar-table-wrap">
+          <table class="calendar-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Игра</th>
+                <th>Старт</th>
+                <th>Взнос</th>
+              </tr>
+            </thead>
+            <tbody id="calendar-body-all"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="calendar-compact panel panel--season">
+        <h2 class="panel-title panel-title--lg" id="calendar-season-title">Календарь текущего сезона</h2>
+        <div class="calendar-table-wrap">
+          <table class="calendar-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Игра</th>
+                <th>Старт</th>
+                <th>Взнос</th>
+              </tr>
+            </thead>
+            <tbody id="calendar-body-season"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="games-hub" aria-labelledby="games-hub-title">
+        <div class="hub-head">
+          <h2 id="games-hub-title">Анонсы и активные игры</h2>
+          <p class="hub-hint">Превью с постером и базовыми полями · полный анонс на странице игры</p>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Фильтр игр">
+          <button type="button" role="tab" id="tab-live" aria-selected="true" aria-controls="panel-live" data-tab="live">
+            <span class="tab-dot tab-dot--pulse"></span>
+            Идут сейчас
+            <span class="tab-count" data-count="live">0</span>
+          </button>
+          <button type="button" role="tab" id="tab-season" aria-selected="false" aria-controls="panel-season" data-tab="season">
+            <span id="tab-season-label">Сезон</span>
+            <span class="tab-count" data-count="season">0</span>
+          </button>
+          <button type="button" role="tab" id="tab-upcoming" aria-selected="false" aria-controls="panel-upcoming" data-tab="upcoming">
+            Предстоящие
+            <span class="tab-count" data-count="upcoming">0</span>
+          </button>
+          <button type="button" role="tab" id="tab-real" aria-selected="false" aria-controls="panel-real" data-tab="real">
+            Реальные
+            <span class="tab-count" data-count="real">0</span>
+          </button>
+          <button type="button" role="tab" id="tab-virtual" aria-selected="false" aria-controls="panel-virtual" data-tab="virtual">
+            Виртуальные
+            <span class="tab-count" data-count="virtual">0</span>
+          </button>
+          <button type="button" role="tab" id="tab-all" aria-selected="false" aria-controls="panel-all" data-tab="all">
+            Все
+            <span class="tab-count" data-count="all">0</span>
+          </button>
+        </div>
+
+        <div class="type-legend" aria-label="Типы игр">
+          <span class="legend-item" data-type="0"><i></i>Схватка</span>
+          <span class="legend-item" data-type="7"><i></i>Точки</span>
+          <span class="legend-item" data-type="1"><i></i>Мозговой штурм</span>
+          <span class="legend-item" data-type="9"><i></i>Викторина</span>
+          <span class="legend-item" data-type="5"><i></i>Фотоохота</span>
+        </div>
+
+        <div id="panel-live" role="tabpanel" aria-labelledby="tab-live" class="tab-panel is-active">
+          <p class="tab-desc">Только игры с кнопкой «Вход в игру»</p>
+          <ul class="game-grid" id="grid-live"></ul>
+          <p class="empty-state" hidden>Сейчас нет игр с открытым входом</p>
+        </div>
+        <div id="panel-season" role="tabpanel" aria-labelledby="tab-season" class="tab-panel" hidden>
+          <p class="tab-desc">Игры активного сезона — <code>seasons-config.js</code></p>
+          <ul class="game-grid" id="grid-season"></ul>
+          <p class="empty-state" hidden>В активном сезоне пока нет игр</p>
+        </div>
+        <div id="panel-upcoming" role="tabpanel" aria-labelledby="tab-upcoming" class="tab-panel" hidden>
+          <ul class="game-grid" id="grid-upcoming"></ul>
+        </div>
+        <div id="panel-real" role="tabpanel" aria-labelledby="tab-real" class="tab-panel" hidden>
+          <ul class="game-grid" id="grid-real"></ul>
+        </div>
+        <div id="panel-virtual" role="tabpanel" aria-labelledby="tab-virtual" class="tab-panel" hidden>
+          <p class="tab-desc">Мозговой штурм, викторина</p>
+          <ul class="game-grid" id="grid-virtual"></ul>
+        </div>
+        <div id="panel-all" role="tabpanel" aria-labelledby="tab-all" class="tab-panel" hidden>
+          <ul class="game-grid" id="grid-all"></ul>
+        </div>
+      </section>
+    </div>
+
+    <aside class="sidebar sidebar--right" id="DivRightDesign">
+      <section class="panel">
+        <h2 class="panel-title">Связь</h2>
+        <ul class="social-list social-list--icons">
+          <li>
+            <a href="https://t.me/enkovrov">
+              <img src="https://d1.endata.cx/images/personal/144762/telega50.png" alt="" width="32" height="32" />
+              Официальный канал
+            </a>
+          </li>
+          <li>
+            <a href="https://vk.com/kovrov_en_cx">
+              <img src="https://d1.endata.cx/images/personal/144762/vk50.png" alt="" width="32" height="32" />
+              ВКонтакте
+            </a>
+          </li>
+          <li><a href="https://t.me/+UtBbo2oYVfBiNThi">Общий чат</a></li>
+        </ul>
+        <ul class="link-list link-list--compact">
+          <li><a href="#">Локальные правила</a></li>
+          <li><a href="#">Аттестация</a></li>
+          <li><a href="#">Авторам игр</a></li>
+        </ul>
+      </section>
+
+      <section class="panel panel--sponsors">
+        <h2 class="panel-title">Спонсоры сезона</h2>
+        <ul class="sponsors-grid">
+          <li><a href="https://vk.ru/shavumisha"><img src="https://d1.endata.cx/images/personal/144762/shavumisha.png" alt="ШавуМиша" height="72" /></a></li>
+          <li><a href="https://www.avtodobryak.ru/"><img src="https://d1.endata.cx/images/personal/144762/logomax150_kv.png" alt="Автодобряк" width="100" /></a></li>
+          <li><a href="https://vk.com/ludiicoffee"><img src="https://d1.endata.cx/images/personal/144762/lyudi.png" alt="Люди" height="72" /></a></li>
+          <li><a href="https://vk.ru/quiz_whois_kovrov"><img src="https://d1.endata.cx/images/personal/144762/quishuis.png" alt="Whois" width="80" /></a></li>
+          <li><a href="https://vk.com/koza.bakery"><img src="https://d1.endata.cx/images/personal/144762/koza.png" alt="Koza" width="72" /></a></li>
+          <li><a href="https://t.me/mostkovrov"><img src="https://d1.endata.cx/images/personal/144762/most.png" alt="МОСТ" width="90" /></a></li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <h2 class="panel-title">Отзывы</h2>
+        <a class="reviews-badge" href="https://kovrov.mir-kvestov.ru/quests/encounter" target="_blank" rel="noopener">
+          <img src="https://kovrov.mir-kvestov.ru/widgets/8619/img" alt="Отзывы" width="120" />
+        </a>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="site-footer" id="DivBottomDesign">
+    <p>Новости — <a href="https://t.me/enkovrov">Telegram</a> · Вопросы — <a href="https://t.me/+ouZ9dlcgNCg4N2My">чат домена</a></p>
+  </footer>
+
+  <script src="seasons-config.js"></script>
+  <script src="games-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

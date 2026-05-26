@@ -1,0 +1,677 @@
+/**
+ * Kovrov — мобильный режим (подключать ПОСЛЕДНИМ)
+ * ≤768px: без таблиц в контенте, карточки календаря, бургер, компактная шапка
+ */
+
+html.kv-html-theme,
+html.kv-html-theme body.kv-full-theme,
+html.kv-view-mobile,
+html.kv-view-mobile body {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  overflow-x: hidden !important;
+}
+
+html.kv-html-theme body.kv-full-theme * {
+  box-sizing: border-box;
+}
+
+/* ——— Шапка: лого/бургер зафиксированы; звёзды absolute поверх верха лого ——— */
+@media (max-width: 768px) {
+  html.kv-html-theme #dnk_head,
+  html.kv-view-mobile #dnk_head {
+    position: relative !important;
+    display: block !important;
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #000 !important;
+    overflow: visible !important;
+    text-align: left !important;
+  }
+
+  html.kv-html-theme #dnk_head .back,
+  html.kv-view-mobile #dnk_head .back {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    background: none !important;
+    background-image: none !important;
+  }
+
+  html.kv-html-theme #dnk_head .kv-head-bar,
+  html.kv-view-mobile #dnk_head .kv-head-bar {
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    padding: 8px 10px 10px !important;
+    box-sizing: border-box !important;
+    min-height: 0 !important;
+  }
+
+  html.kv-html-theme #dnk_head .logo,
+  html.kv-view-mobile #dnk_head .logo {
+    position: relative !important;
+    z-index: 1 !important;
+    display: block !important;
+    flex: none !important;
+    max-width: min(100%, 220px) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    float: none !important;
+    text-align: left !important;
+    left: 0 !important;
+    right: auto !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+  }
+
+  html.kv-html-theme #dnk_head .logo img,
+  html.kv-view-mobile #dnk_head .logo img {
+    display: block !important;
+    max-width: min(100%, 200px) !important;
+    height: auto !important;
+  }
+
+  html.kv-html-theme #dnk_head .kv-head-left,
+  html.kv-view-mobile #dnk_head .kv-head-left {
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: flex-start !important;
+    -webkit-box-pack: start !important;
+    position: relative !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    max-width: calc(100% - 52px) !important;
+    min-height: 0 !important;
+    height: auto !important;
+    align-self: stretch !important;
+  }
+
+  html.kv-html-theme #dnk_head .kv-head-brand,
+  html.kv-view-mobile #dnk_head .kv-head-brand {
+    display: block !important;
+    position: relative !important;
+    width: auto !important;
+    max-width: 100% !important;
+    line-height: 0 !important;
+    margin: 0 !important;
+    margin-right: auto !important;
+    padding: 0 !important;
+    text-align: left !important;
+    align-self: flex-start !important;
+    flex: 0 1 auto !important;
+  }
+
+  html.kv-html-theme #dnk_head .kv-head-brand .logo,
+  html.kv-view-mobile #dnk_head .kv-head-brand .logo {
+    position: relative !important;
+    top: auto !important;
+    left: 0 !important;
+    float: none !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    flex: none !important;
+  }
+
+  html.kv-html-theme #dnk_head .kv-head-brand .star,
+  html.kv-view-mobile #dnk_head .kv-head-brand .star {
+    position: absolute !important;
+    top: 20px !important;
+    left: 31px !important;
+    z-index: 3 !important;
+    width: 140px !important;
+    height: 20px !important;
+    margin: 0 !important;
+    background: url(https://d1.endata.cx/images/personal/83308/kovrov_dnk_stars_2.png) top left no-repeat !important;
+    overflow: hidden !important;
+    pointer-events: auto !important;
+  }
+
+  html.kv-html-theme #dnk_head .kv-head-brand .star .front,
+  html.kv-html-theme #dnk_head .kv-head-brand .star .clear,
+  html.kv-view-mobile #dnk_head .kv-head-brand .star .front,
+  html.kv-view-mobile #dnk_head .kv-head-brand .star .clear {
+    float: left !important;
+    height: 20px !important;
+    overflow: hidden !important;
+    pointer-events: auto !important;
+  }
+
+  html.kv-html-theme #dnk_head .kv-head-brand .star .front img,
+  html.kv-view-mobile #dnk_head .kv-head-brand .star .front img {
+    display: block !important;
+    height: 20px !important;
+    width: auto !important;
+    max-width: none !important;
+  }
+
+  html.kv-html-theme #dnk_head .kv-head-brand .logo,
+  html.kv-view-mobile #dnk_head .kv-head-brand .logo {
+    z-index: 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  html.kv-html-theme #dnk_head .kv-head-left > .logo,
+  html.kv-view-mobile #dnk_head .kv-head-left > .logo {
+    position: relative !important;
+    top: auto !important;
+    left: 0 !important;
+    flex: none !important;
+  }
+
+  html.kv-html-theme #kvMenuFallback,
+  html.kv-view-mobile #kvMenuFallback {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    flex: 0 0 48px !important;
+    width: 48px !important;
+    height: 48px !important;
+  }
+}
+
+/* ——— Меню: горизонтальное скрыто, бургер .menu-wrap виден ——— */
+@media (max-width: 768px) {
+  html.kv-html-theme .menuWrap,
+  html.kv-html-theme table.menuWrap,
+  html.kv-view-mobile .menuWrap {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  html.kv-html-theme .menu-wrap,
+  html.kv-view-mobile .menu-wrap,
+  html.kv-html-theme #kvMenuFallback,
+  html.kv-html-theme #dnk_head .menu-wrap,
+  html.kv-html-theme #DivTopDesign > .menu-wrap,
+  html.kv-view-mobile #kvMenuFallback,
+  html.kv-view-mobile #dnk_head .menu-wrap,
+  html.kv-view-mobile #DivTopDesign > .menu-wrap {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  html.kv-html-theme #dnk_head:has(.menu-wrap) + .menu-wrap,
+  html.kv-view-mobile #dnk_head:has(.menu-wrap) + .menu-wrap {
+    display: none !important;
+  }
+}
+
+/* ——— Колонки: ЛК → центр → право ——— */
+@media (max-width: 1100px) {
+  html.kv-html-theme #tableContent tr:has(> #tdContentLeft):has(> #tdContentCenter) {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  html.kv-html-theme #tableContent #tdContentLeft {
+    order: 1 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  html.kv-html-theme #tableContent #tdContentCenter {
+    order: 2 !important;
+  }
+
+  html.kv-html-theme #tableContent #tdContentRight {
+    order: 3 !important;
+  }
+
+  html.kv-html-theme #tableContent #tdContentLeft,
+  html.kv-html-theme #tableContent #tdContentCenter,
+  html.kv-html-theme #tableContent #tdContentRight {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  html.kv-html-theme #tdContentLeft {
+    min-width: 0 !important;
+  }
+
+  html.kv-html-theme #tdContentLeft .spacer[style*="width"] {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+}
+
+/* ——— ЛК: таблица → блоки ——— */
+@media (max-width: 768px) {
+  html.kv-html-theme #boxUser table,
+  html.kv-html-theme #boxUser tbody,
+  html.kv-html-theme #boxUser tr,
+  html.kv-html-theme #boxUser td,
+  html.kv-html-theme #adminPanelLinkDiv table,
+  html.kv-html-theme #adminPanelLinkDiv tr,
+  html.kv-html-theme #adminPanelLinkDiv td {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.25 !important;
+  }
+
+  html.kv-html-theme #boxUser .lm,
+  html.kv-html-theme #boxUser .lma,
+  html.kv-html-theme #adminPanelLinkDiv .lm {
+    padding: 1px 0 !important;
+    line-height: 1.25 !important;
+  }
+
+  /* Мобайл: не показывать «Моя почта» в блоке пользователя */
+  html.kv-html-theme #boxUser tr:has(a.lm[href*="EnMail.aspx"]),
+  html.kv-html-theme #boxUser tr:has(a[href*="enmail.aspx"]),
+  html.kv-view-mobile #boxUser tr:has(a.lm[href*="EnMail.aspx"]),
+  html.kv-view-mobile #boxUser tr:has(a[href*="enmail.aspx"]) {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+  }
+
+  html.kv-html-theme #boxUser #spanUnreadMails,
+  html.kv-view-mobile #boxUser #spanUnreadMails {
+    display: none !important;
+  }
+
+  html.kv-html-theme #boxUser .hr,
+  html.kv-html-theme #adminPanelLinkDiv .hr {
+    margin: 2px 0 !important;
+    background: #4a4a4a !important;
+    background-color: #4a4a4a !important;
+  }
+
+  html.kv-html-theme #boxUser.kv-box-guest .kv-guest-login-table,
+  html.kv-html-theme #boxUser.kv-box-guest .kv-guest-login-table tr,
+  html.kv-html-theme #boxUser.kv-box-guest .kv-guest-login-table td,
+  html.kv-view-mobile #boxUser.kv-box-guest .kv-guest-login-table,
+  html.kv-view-mobile #boxUser.kv-box-guest .kv-guest-login-table tr,
+  html.kv-view-mobile #boxUser.kv-box-guest .kv-guest-login-table td {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  html.kv-html-theme #boxUser.kv-box-guest .kv-guest-login-table tr,
+  html.kv-view-mobile #boxUser.kv-box-guest .kv-guest-login-table tr {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  html.kv-html-theme #boxUser.kv-box-guest .kv-guest-login-table tr:first-child td,
+  html.kv-view-mobile #boxUser.kv-box-guest .kv-guest-login-table tr:first-child td {
+    padding: 10px 8px 0 !important;
+  }
+
+  html.kv-html-theme #boxUser.kv-box-guest .kv-guest-login-table tr:nth-child(2) td,
+  html.kv-view-mobile #boxUser.kv-box-guest .kv-guest-login-table tr:nth-child(2) td {
+    padding: 12px 8px 12px !important;
+    line-height: 1.6 !important;
+    text-align: center !important;
+  }
+
+  html.kv-html-theme #boxUser.kv-box-guest a[href*="/Login.aspx"]:not([href*="logout"]),
+  html.kv-view-mobile #boxUser.kv-box-guest a[href*="/Login.aspx"]:not([href*="logout"]) {
+    display: block !important;
+    margin: 0 !important;
+  }
+
+  #kvGamesHub .kv-game-card__actions {
+    margin-top: 10px !important;
+    padding-top: 10px !important;
+    gap: 8px !important;
+  }
+
+  #kvGamesHub .kv-btn-enter {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  html.kv-html-theme table.gameInfo > tbody > tr > td[height],
+  html.kv-view-mobile table.gameInfo > tbody > tr > td[height] {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    vertical-align: top !important;
+  }
+
+  html.kv-html-theme table.gameInfo > tbody > tr.kv-game-row-end > td,
+  html.kv-view-mobile table.gameInfo > tbody > tr.kv-game-row-end > td,
+  html.kv-html-theme table.gameInfo > tbody > tr:has(+ tr > td a[href*="MakeGameFee.aspx"]) > td,
+  html.kv-view-mobile table.gameInfo > tbody > tr:has(+ tr > td a[href*="MakeGameFee.aspx"]) > td {
+    padding: 6px 0 16px !important;
+    overflow: visible !important;
+    position: relative !important;
+    z-index: 1 !important;
+  }
+
+  html.kv-html-theme table.gameInfo > tbody > tr.kv-game-row-fee,
+  html.kv-view-mobile table.gameInfo > tbody > tr.kv-game-row-fee,
+  html.kv-html-theme table.gameInfo > tbody > tr:has(td a[href*="MakeGameFee.aspx"]),
+  html.kv-view-mobile table.gameInfo > tbody > tr:has(td a[href*="MakeGameFee.aspx"]) {
+    display: table-row !important;
+    height: auto !important;
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  html.kv-html-theme table.gameInfo > tbody > tr.kv-game-row-fee > td,
+  html.kv-view-mobile table.gameInfo > tbody > tr.kv-game-row-fee > td,
+  html.kv-html-theme table.gameInfo > tbody > tr:has(td a[href*="MakeGameFee.aspx"]) > td,
+  html.kv-view-mobile table.gameInfo > tbody > tr:has(td a[href*="MakeGameFee.aspx"]) > td {
+    display: table-cell !important;
+    height: auto !important;
+    padding: 4px 0 14px !important;
+    overflow: visible !important;
+    box-sizing: border-box !important;
+    vertical-align: top !important;
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  html.kv-html-theme table.gameInfo .kv-fee-row,
+  html.kv-view-mobile table.gameInfo .kv-fee-row {
+    display: flex !important;
+    flex-flow: row wrap !important;
+    align-items: center !important;
+    gap: 8px 10px !important;
+    width: 100% !important;
+    min-height: 2.75rem !important;
+    padding: 6px 0 !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+  }
+
+  html.kv-html-theme table.gameInfo .kv-fee-row a[href*="MakeGameFee.aspx"],
+  html.kv-html-theme table.gameInfo .kv-fee-row a.kv-btn-confirm-fee,
+  html.kv-view-mobile table.gameInfo .kv-fee-row a[href*="MakeGameFee.aspx"],
+  html.kv-view-mobile table.gameInfo .kv-fee-row a.kv-btn-confirm-fee {
+    display: inline-flex !important;
+    flex: 0 0 auto !important;
+    float: none !important;
+    clear: none !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    vertical-align: middle !important;
+  }
+
+  html.kv-html-theme table.gameInfo > tbody > tr.kv-game-row-prize > td,
+  html.kv-view-mobile table.gameInfo > tbody > tr.kv-game-row-prize > td,
+  html.kv-html-theme table.gameInfo > tbody > tr:has(#GameDetail_lblPrizeCurrency) > td,
+  html.kv-view-mobile table.gameInfo > tbody > tr:has(#GameDetail_lblPrizeCurrency) > td {
+    display: table-cell !important;
+    padding: 16px 0 10px !important;
+    overflow: visible !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    z-index: 1 !important;
+  }
+
+  html.kv-html-theme table.gameInfo td:has(a[href*="MakeGameFee.aspx"]) span.title,
+  html.kv-view-mobile table.gameInfo td:has(a[href*="MakeGameFee.aspx"]) span.title {
+    display: inline !important;
+    margin: 0 !important;
+  }
+}
+
+/* ——— Календари на мобиле скрыты полностью ——— */
+@media (max-width: 768px) {
+  html.kv-html-theme .kv-calendar-wrap,
+  html.kv-html-theme .kv-season-block,
+  html.kv-view-mobile .kv-calendar-wrap,
+  html.kv-view-mobile .kv-season-block {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    max-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  html.kv-html-theme .kv-cal-cards,
+  html.kv-html-theme .kv-cal-card,
+  html.kv-view-mobile .kv-cal-cards,
+  html.kv-view-mobile .kv-cal-card {
+    display: none !important;
+    visibility: hidden !important;
+  }
+}
+
+/* ——— Спонсоры на мобиле ——— */
+@media (max-width: 768px) {
+  html.kv-html-theme #tdContentRight,
+  html.kv-html-theme #DivRightDesign,
+  html.kv-view-mobile #tdContentRight,
+  html.kv-view-mobile #DivRightDesign {
+    display: block !important;
+    visibility: visible !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  html.kv-html-theme #DivRightDesign .kv-sponsors-grid,
+  html.kv-view-mobile #DivRightDesign .kv-sponsors-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+}
+
+/* ——— ТОП-5 на главной: карточки (только блоки рейтинга, не профили/команды) ——— */
+@media (max-width: 768px) {
+  html.kv-html-theme #boxCenterTopAuthors table tr.topWinnerHead,
+  html.kv-html-theme #boxCenterTopTeams table tr.topWinnerHead,
+  html.kv-html-theme #boxCenterTopUsers table tr.topWinnerHead {
+    display: none !important;
+  }
+
+  html.kv-html-theme #boxCenterTopAuthors table tbody,
+  html.kv-html-theme #boxCenterTopAuthors table tr,
+  html.kv-html-theme #boxCenterTopTeams table tbody,
+  html.kv-html-theme #boxCenterTopTeams table tr,
+  html.kv-html-theme #boxCenterTopUsers table tbody,
+  html.kv-html-theme #boxCenterTopUsers table tr {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  html.kv-html-theme #boxCenterTopAuthors table td,
+  html.kv-html-theme #boxCenterTopTeams table td,
+  html.kv-html-theme #boxCenterTopUsers table td {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: left !important;
+    padding: 4px 0 !important;
+    border: none !important;
+  }
+
+  html.kv-html-theme #boxCenterTopAuthors tr.toWinnerItem,
+  html.kv-html-theme #boxCenterTopAuthors tr.toWinnerAltItem,
+  html.kv-html-theme #boxCenterTopTeams tr.toWinnerItem,
+  html.kv-html-theme #boxCenterTopTeams tr.toWinnerAltItem {
+    margin: 0 0 8px !important;
+    padding: 10px !important;
+    background: #222822 !important;
+    border: 1px solid #2d3d2d !important;
+    border-radius: 8px !important;
+  }
+}
+
+/* Внутренние страницы → kovrov-inner-pages.css (после responsive) */
+
+/* ——— Анонсы: один столбец ——— */
+@media (max-width: 768px) {
+  html.kv-html-theme #kvGamesHub .kv-game-grid,
+  html.kv-html-theme #kvGamesHub ul.kv-game-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 12px !important;
+  }
+
+  html.kv-html-theme #kvGamesHub .kv-game-card {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    grid-template-columns: none !important;
+    padding: 12px !important;
+    overflow: hidden !important;
+  }
+
+  html.kv-html-theme #kvGamesHub .kv-thumb-wrap {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 200px !important;
+    aspect-ratio: 16 / 9;
+    margin: 0 0 10px !important;
+    grid-row: auto !important;
+  }
+
+  html.kv-html-theme #kvGamesHub .kv-game-card__facts dt {
+    float: none !important;
+    width: auto !important;
+  }
+
+  html.kv-html-theme #kvGamesHub .kv-game-card__facts dd {
+    margin: 0 0 8px !important;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(45, 61, 45, 0.5);
+  }
+
+  html.kv-html-theme #kvGamesHub .kv-tabs {
+    flex-wrap: wrap !important;
+  }
+
+  html.kv-html-theme #kvGamesHub .kv-tabs button {
+    flex: 1 1 calc(50% - 8px) !important;
+    min-width: 0 !important;
+    white-space: normal !important;
+  }
+
+  html.kv-html-theme #kvGamesHub {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+/* Карточки календаря */
+.kv-cal-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.kv-cal-card {
+  padding: 12px;
+  background: #222822;
+  border: 1px solid #2d3d2d;
+  border-left: 4px solid #94a3b8;
+  border-radius: 8px;
+}
+
+.kv-cal-card[data-zone="0"] { border-left-color: #4ade80; }
+.kv-cal-card[data-zone="1"] { border-left-color: #60a5fa; }
+.kv-cal-card[data-zone="2"] { border-left-color: #f87171; }
+.kv-cal-card[data-zone="4"] { border-left-color: #facc15; }
+.kv-cal-card[data-zone="5"] { border-left-color: #38bdf8; }
+.kv-cal-card[data-zone="7"] { border-left-color: #fb923c; }
+.kv-cal-card[data-zone="8"] { border-left-color: #2dd4bf; }
+.kv-cal-card[data-zone="9"] { border-left-color: #c084fc; }
+
+.kv-cal-card__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.kv-cal-card__title {
+  color: #e8eee8;
+  font-weight: 600;
+  line-height: 1.3;
+  text-decoration: none;
+}
+
+.kv-cal-card__line {
+  margin: 4px 0;
+  font-size: 12px;
+  line-height: 1.35;
+  color: #e8eee8;
+}
+
+.kv-cal-card__line span {
+  color: #9aaa9a;
+  font-weight: 600;
+}
+
+.kv-cal-empty {
+  margin: 0;
+  padding: 12px;
+  color: #9aaa9a;
+  font-size: 13px;
+}
+
+.kv-thumb-zoom {
+  display: none;
+  position: fixed;
+  z-index: 2147483646;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: min(94vw, 520px);
+  max-height: min(85vh, 520px);
+  padding: 10px;
+  background: rgba(8, 16, 8, 0.96);
+  border: 2px solid #cfff9f;
+  border-radius: 12px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.85);
+  pointer-events: none;
+}
+
+.kv-thumb-zoom--visible {
+  display: block;
+}
+
+.kv-thumb-zoom img {
+  display: block;
+  max-width: min(90vw, 500px);
+  max-height: min(80vh, 500px);
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+  border-radius: 8px;
+}

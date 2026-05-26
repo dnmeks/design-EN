@@ -1,0 +1,170 @@
+<!-- «Верхняя область на главной» — только HTML код -->
+
+<div class="kv-calendar-wrap kv-calendar-wrap--domain">
+  <h2 class="kv-cal-title">Календарь игр домена</h2>
+  <div id="divCalendar"></div>
+</div>
+
+<section class="kv-season-block" aria-labelledby="kv-season-block-title">
+  <header class="kv-season-block__head">
+    <h2 class="kv-season-block__title" id="kv-season-block-title">Календарь сезона</h2>
+    <nav class="kv-season-block__links" aria-label="Сезон">
+      <a class="kv-season-block__link" id="kv-chip-reglement" href="/Addons.aspx?aid=19387">Регламент</a>
+      <span class="kv-season-block__sep" aria-hidden="true">/</span>
+      <a class="kv-season-block__link" id="kv-chip-standings" href="/Administration/">Турнирная таблица</a>
+      <span class="kv-season-block__sep" aria-hidden="true">/</span>
+      <a class="kv-season-block__link" id="kv-chip-sponsors" href="#kvSponsorsCenter">Спонсоры</a>
+    </nav>
+  </header>
+  <div class="kv-season-block__body" id="divCalendar2"></div>
+</section>
+
+<div id="kvGamesHub">
+  <div class="kv-hub-head">
+    <h3>Анонсы и активные игры</h3>
+    <p class="kv-hub-hint">Компактное превью · полный анонс на странице игры</p>
+  </div>
+  <div class="kv-type-legend" aria-label="Типы игр">
+    <span class="kv-legend-item" data-zone="0"><i></i>Схватка</span>
+    <span class="kv-legend-item" data-zone="7"><i></i>Точки</span>
+    <span class="kv-legend-item" data-zone="5"><i></i>Мокрые войны</span>
+    <span class="kv-legend-item" data-zone="1"><i></i>Мозговой штурм</span>
+    <span class="kv-legend-item" data-zone="2"><i></i>Фотоэкстрим</span>
+    <span class="kv-legend-item" data-zone="9"><i></i>Викторина</span>
+    <span class="kv-legend-item" data-zone="4"><i></i>Кэшинг</span>
+    <span class="kv-legend-item" data-zone="8"><i></i>Конкурс</span>
+  </div>
+  <div class="kv-tabs" role="tablist">
+    <button type="button" data-tab="live" aria-selected="false" aria-controls="kv-panel-live">Идут сейчас <span class="kv-tab-count" data-kv-count="live">0</span></button>
+    <button type="button" data-tab="season" aria-controls="kv-panel-season"><span id="kv-tab-season-label">Сезон</span> <span class="kv-tab-count" data-kv-count="season">0</span></button>
+    <button type="button" data-tab="upcoming" aria-controls="kv-panel-upcoming">Предстоящие <span class="kv-tab-count" data-kv-count="upcoming">0</span></button>
+    <button type="button" data-tab="real" aria-controls="kv-panel-real">Реальные <span class="kv-tab-count" data-kv-count="real">0</span></button>
+    <button type="button" data-tab="virtual" aria-controls="kv-panel-virtual">Виртуальные <span class="kv-tab-count" data-kv-count="virtual">0</span></button>
+    <button type="button" data-tab="all" aria-controls="kv-panel-all">Все <span class="kv-tab-count" data-kv-count="all">0</span></button>
+  </div>
+  <div id="kv-panel-live" class="kv-tab-panel" role="tabpanel">
+    <p class="kv-tab-desc">Только игры с кнопкой «Вход в игру»</p>
+    <ul class="kv-game-grid" id="kv-grid-live"><li style="display:none" aria-hidden="true">.</li></ul>
+    <p class="kv-empty" id="kv-empty-live" style="display:none;">Сейчас нет игр с открытым входом</p>
+  </div>
+  <div id="kv-panel-season" class="kv-tab-panel">
+    <ul class="kv-game-grid" id="kv-grid-season"><li style="display:none" aria-hidden="true">.</li></ul>
+    <p class="kv-empty" id="kv-empty-season" style="display:none;">В активном сезоне пока нет игр</p>
+  </div>
+  <div id="kv-panel-upcoming" class="kv-tab-panel kv-tab-panel--active">
+    <ul class="kv-game-grid" id="kv-grid-upcoming"><li style="display:none" aria-hidden="true">.</li></ul>
+  </div>
+  <div id="kv-panel-real" class="kv-tab-panel">
+    <ul class="kv-game-grid" id="kv-grid-real"><li style="display:none" aria-hidden="true">.</li></ul>
+  </div>
+  <div id="kv-panel-virtual" class="kv-tab-panel">
+    <p class="kv-tab-desc">Все типы, кроме схватки, точек и мокрых войн</p>
+    <ul class="kv-game-grid" id="kv-grid-virtual"><li style="display:none" aria-hidden="true">.</li></ul>
+  </div>
+  <div id="kv-panel-all" class="kv-tab-panel">
+    <ul class="kv-game-grid" id="kv-grid-all"><li style="display:none" aria-hidden="true">.</li></ul>
+  </div>
+</div>
+
+<!-- Десктоп: спонсоры под анонсами; мобила — в правую колонку -->
+<div id="kvSponsorsCenter" class="kv-sponsors-center" aria-live="polite"></div>
+
+<script type="text/javascript">
+(function () {
+  function isDesktop() {
+    return window.matchMedia && window.matchMedia("(min-width: 769px)").matches;
+  }
+
+  function placeSponsors() {
+    var panel =
+      document.querySelector("#kvSponsorsCenter .kv-panel--season") ||
+      document.querySelector("#DivRightDesign .kv-panel--season");
+    var slot = document.getElementById("kvSponsorsCenter");
+    var right = document.getElementById("DivRightDesign");
+    if (!panel || !right) {
+      return;
+    }
+
+    if (isDesktop() && slot) {
+      if (panel.parentNode !== slot) {
+        slot.appendChild(panel);
+      }
+      document.body.classList.add("kv-sponsors-in-center");
+      document.documentElement.classList.add("kv-sponsors-in-center");
+      return;
+    }
+
+    if (panel.parentNode !== right) {
+      var anchor = null;
+      var i;
+      var ch = right.children;
+      for (i = 0; i < ch.length; i++) {
+        if (
+          ch[i].classList &&
+          ch[i].classList.contains("kv-panel") &&
+          !ch[i].classList.contains("kv-panel--season")
+        ) {
+          anchor = ch[i];
+        }
+      }
+      if (anchor && anchor.parentNode === right && anchor !== panel) {
+        right.insertBefore(panel, anchor);
+      } else {
+        right.appendChild(panel);
+      }
+    }
+    document.body.classList.remove("kv-sponsors-in-center");
+    document.documentElement.classList.remove("kv-sponsors-in-center");
+  }
+
+  function scrollToSponsors(e) {
+    var link = document.getElementById("kv-chip-sponsors");
+    if (e && e.preventDefault) {
+      e.preventDefault();
+    }
+    if (isDesktop()) {
+      if (window.kvPlaceSponsors) {
+        window.kvPlaceSponsors();
+      }
+      var slot = document.getElementById("kvSponsorsCenter");
+      if (slot) {
+        slot.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      return;
+    }
+    var panel =
+      document.getElementById("kv-sponsors-season") ||
+      document.querySelector("#DivRightDesign .kv-panel--season");
+    if (panel) {
+      panel.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
+  function setupSponsorsLink() {
+    var link = document.getElementById("kv-chip-sponsors");
+    if (!link || link.getAttribute("data-kv-scroll-bound") === "1") {
+      return;
+    }
+    link.setAttribute("data-kv-scroll-bound", "1");
+    link.addEventListener("click", scrollToSponsors);
+  }
+
+  function schedule() {
+    placeSponsors();
+    setupSponsorsLink();
+    setTimeout(placeSponsors, 100);
+    setTimeout(placeSponsors, 600);
+    setTimeout(placeSponsors, 2000);
+    setTimeout(setupSponsorsLink, 100);
+  }
+
+  document.addEventListener("DOMContentLoaded", schedule);
+  window.addEventListener("load", placeSponsors);
+  window.addEventListener("resize", function () {
+    clearTimeout(window._kvSponsorsT);
+    window._kvSponsorsT = setTimeout(placeSponsors, 150);
+  });
+
+  window.kvPlaceSponsors = placeSponsors;
+})();
+</script>

@@ -1,0 +1,1176 @@
+/* Kovrov games hub — только блоки kv-* на главной */
+#kvGamesHub {
+  --kv-bg-panel: #1a1f1a;
+  --kv-bg-card: #222822;
+  --kv-border: #2d3d2d;
+  --kv-text: #e8eee8;
+  --kv-muted: #9aaa9a;
+  --kv-accent: #cfff9f;
+  --kv-link: #81d281;
+  --kv-season: #63d7c9;
+  --kv-radius: 10px;
+  --kv-t-default: #94a3b8;
+  --kv-t-default-bg: rgba(148, 163, 184, 0.14);
+  --kv-t0: #4ade80;
+  --kv-t0bg: rgba(74, 222, 128, 0.14);
+  --kv-t1: #60a5fa;
+  --kv-t1bg: rgba(96, 165, 250, 0.14);
+  --kv-t2: #f87171;
+  --kv-t2bg: rgba(248, 113, 113, 0.14);
+  --kv-t4: #facc15;
+  --kv-t4bg: rgba(250, 204, 21, 0.14);
+  --kv-t5: #38bdf8;
+  --kv-t5bg: rgba(56, 189, 248, 0.14);
+  --kv-t7: #fb923c;
+  --kv-t7bg: rgba(251, 146, 60, 0.14);
+  --kv-t8: #2dd4bf;
+  --kv-t8bg: rgba(45, 212, 191, 0.14);
+  --kv-t9: #c084fc;
+  --kv-t9bg: rgba(192, 132, 252, 0.14);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--kv-text);
+}
+
+#kvGamesHub {
+  margin: 0 0 12px;
+  padding: 14px 16px;
+  background: var(--kv-bg-panel);
+  border: 1px solid var(--kv-border);
+  border-radius: var(--kv-radius);
+}
+
+#kvGamesHub .kv-hub-head h3 {
+  margin: 0 0 4px;
+  font-size: 1.1rem;
+  color: var(--kv-accent);
+}
+
+#kvGamesHub .kv-hub-hint {
+  margin: 0 0 12px;
+  font-size: 0.78rem;
+  color: var(--kv-muted);
+}
+
+#kvGamesHub .kv-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+  padding: 4px;
+  background: #111;
+  border: 1px solid var(--kv-border);
+  border-radius: var(--kv-radius);
+}
+
+#kvGamesHub .kv-tabs button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--kv-muted);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+#kvGamesHub .kv-tabs button[aria-selected="true"] {
+  background: var(--kv-bg-card);
+  color: var(--kv-accent);
+}
+
+#kvGamesHub .kv-tab-count {
+  min-width: 18px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.35);
+  font-size: 11px;
+}
+
+#kvGamesHub .kv-tab-dot--pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+}
+
+#kvGamesHub .kv-type-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-bottom: 12px;
+  font-size: 0.75rem;
+  color: var(--kv-muted);
+}
+
+#kvGamesHub .kv-legend-item i {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 4px;
+  border-radius: 3px;
+  vertical-align: middle;
+}
+
+#kvGamesHub .kv-legend-item[data-zone="0"] i,
+#kvGamesHub .kv-legend-item[data-type="0"] i { background: var(--kv-t0); }
+#kvGamesHub .kv-legend-item[data-zone="1"] i,
+#kvGamesHub .kv-legend-item[data-type="1"] i { background: var(--kv-t1); }
+#kvGamesHub .kv-legend-item[data-zone="2"] i,
+#kvGamesHub .kv-legend-item[data-type="2"] i { background: var(--kv-t2); }
+#kvGamesHub .kv-legend-item[data-zone="4"] i,
+#kvGamesHub .kv-legend-item[data-type="4"] i { background: var(--kv-t4); }
+#kvGamesHub .kv-legend-item[data-zone="5"] i,
+#kvGamesHub .kv-legend-item[data-type="5"] i { background: var(--kv-t5); }
+#kvGamesHub .kv-legend-item[data-zone="7"] i,
+#kvGamesHub .kv-legend-item[data-type="7"] i { background: var(--kv-t7); }
+#kvGamesHub .kv-legend-item[data-zone="8"] i,
+#kvGamesHub .kv-legend-item[data-type="8"] i { background: var(--kv-t8); }
+#kvGamesHub .kv-legend-item[data-zone="9"] i,
+#kvGamesHub .kv-legend-item[data-type="9"] i { background: var(--kv-t9); }
+
+/* Палитра типов: карточка + бейдж */
+#kvGamesHub .kv-game-card,
+#kvGamesHub .kv-type-badge {
+  --kv-type-color: var(--kv-t-default);
+  --kv-type-bg: var(--kv-t-default-bg);
+}
+
+#kvGamesHub .kv-game-card[data-zone="0"],
+#kvGamesHub .kv-type-badge[data-zone="0"] { --kv-type-color: var(--kv-t0); --kv-type-bg: var(--kv-t0bg); }
+#kvGamesHub .kv-game-card[data-zone="1"],
+#kvGamesHub .kv-type-badge[data-zone="1"] { --kv-type-color: var(--kv-t1); --kv-type-bg: var(--kv-t1bg); }
+#kvGamesHub .kv-game-card[data-zone="2"],
+#kvGamesHub .kv-type-badge[data-zone="2"] { --kv-type-color: var(--kv-t2); --kv-type-bg: var(--kv-t2bg); }
+#kvGamesHub .kv-game-card[data-zone="4"],
+#kvGamesHub .kv-type-badge[data-zone="4"] { --kv-type-color: var(--kv-t4); --kv-type-bg: var(--kv-t4bg); }
+#kvGamesHub .kv-game-card[data-zone="5"],
+#kvGamesHub .kv-type-badge[data-zone="5"] { --kv-type-color: var(--kv-t5); --kv-type-bg: var(--kv-t5bg); }
+#kvGamesHub .kv-game-card[data-zone="7"],
+#kvGamesHub .kv-type-badge[data-zone="7"] { --kv-type-color: var(--kv-t7); --kv-type-bg: var(--kv-t7bg); }
+#kvGamesHub .kv-game-card[data-zone="8"],
+#kvGamesHub .kv-type-badge[data-zone="8"] { --kv-type-color: var(--kv-t8); --kv-type-bg: var(--kv-t8bg); }
+#kvGamesHub .kv-game-card[data-zone="9"],
+#kvGamesHub .kv-type-badge[data-zone="9"] { --kv-type-color: var(--kv-t9); --kv-type-bg: var(--kv-t9bg); }
+
+#kvGamesHub .kv-tab-panel {
+  display: none;
+}
+
+#kvGamesHub .kv-tab-panel--active {
+  display: block;
+}
+
+#kvGamesHub .kv-tab-desc {
+  margin: 0 0 10px;
+  font-size: 0.75rem;
+  color: var(--kv-muted);
+}
+
+#kvGamesHub .kv-game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  align-items: stretch;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+#kvGamesHub .kv-game-grid > .kv-game-card {
+  height: 100%;
+  min-height: 100%;
+}
+
+#kvGamesHub,
+.kv-calendar-wrap,
+.kv-season-block {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+#kvGamesHub .kv-tabs {
+  max-width: 100%;
+}
+
+#kvGamesHub .kv-game-card {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 0 10px;
+  padding: 10px;
+  background: var(--kv-bg-card);
+  border: 1px solid var(--kv-border);
+  border-left-width: 4px;
+  border-radius: var(--kv-radius);
+  box-sizing: border-box;
+}
+
+#kvGamesHub .kv-game-card {
+  border-left-color: var(--kv-type-color);
+  box-shadow: inset 3px 0 12px -8px var(--kv-type-color);
+}
+
+#kvGamesHub .kv-game-card--season {
+  box-shadow: 0 0 0 1px rgba(99, 215, 201, 0.35), inset 3px 0 12px -8px var(--kv-type-color);
+}
+
+#kvGamesHub .kv-thumb-wrap {
+  grid-column: 1;
+  grid-row: 1 / 4;
+  position: relative;
+  width: 72px;
+  height: 72px;
+  align-self: start;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #111;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+#kvGamesHub .kv-game-card__thumb {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  transform-origin: center center;
+}
+
+#kvGamesHub .kv-game-card__thumb--ph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 26px;
+}
+
+/* Превью при наведении — всплывает через #kv-thumb-zoom (games-hub.js), карточка не меняет размер */
+#kvGamesHub .kv-thumb-wrap--has-poster {
+  cursor: zoom-in;
+}
+
+#kvGamesHub .kv-thumb-wrap--has-poster:hover .kv-game-card__thumb {
+  opacity: 0.92;
+}
+
+#kvGamesHub .kv-game-card__head {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+}
+
+#kvGamesHub .kv-type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+#kvGamesHub .kv-type-badge {
+  color: var(--kv-type-color);
+  background: var(--kv-type-bg);
+  border: 1px solid color-mix(in srgb, var(--kv-type-color) 35%, transparent);
+}
+
+#kvGamesHub .kv-badge--live {
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  background: #16a34a;
+}
+
+#kvGamesHub .kv-badge--season {
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #bffff6;
+  background: rgba(99, 215, 201, 0.2);
+  border: 1px solid var(--kv-season);
+}
+
+#kvGamesHub .kv-game-card__title {
+  grid-column: 2;
+  grid-row: 2;
+  margin: 4px 0;
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+#kvGamesHub .kv-game-card__title a {
+  color: var(--kv-text);
+  text-decoration: none;
+}
+
+#kvGamesHub .kv-game-card__title a:hover {
+  color: var(--kv-accent);
+}
+
+#kvGamesHub .kv-game-card__facts {
+  grid-column: 2;
+  grid-row: 3;
+  align-self: start;
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.35;
+  min-height: 0;
+}
+
+#kvGamesHub .kv-game-card__facts dt {
+  float: left;
+  clear: left;
+  width: 72px;
+  margin: 0 0 3px;
+  color: var(--kv-muted);
+  font-weight: 600;
+}
+
+#kvGamesHub .kv-game-card__facts dd {
+  margin: 0 0 3px 78px;
+  color: var(--kv-text);
+}
+
+#kvGamesHub .kv-game-card__facts dd strong {
+  color: var(--kv-link);
+}
+
+#kvGamesHub .kv-author-link {
+  color: var(--kv-link);
+  text-decoration: none;
+}
+
+#kvGamesHub .kv-author-link:hover {
+  color: var(--kv-accent);
+}
+
+#kvGamesHub .kv-time-left {
+  color: #cfff9f;
+  font-weight: 600;
+}
+
+#kvGamesHub .kv-game-card__actions {
+  grid-column: 1 / -1;
+  grid-row: 4;
+  align-self: end;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--kv-border);
+}
+
+#kvGamesHub .kv-btn {
+  padding: 5px 11px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+#kvGamesHub .kv-btn--primary {
+  background: linear-gradient(180deg, #2d5a2d, #1e3d1e);
+  color: var(--kv-accent);
+  border: 1px solid #3d5c3d;
+}
+
+#kvGamesHub .kv-btn--ghost {
+  border: 1px solid var(--kv-border);
+  color: var(--kv-muted);
+}
+
+.kv-calendar-wrap {
+  margin: 0 0 12px;
+  padding: 12px 14px;
+  background: #1a1f1a;
+  border: 1px solid #2d3d2d;
+  border-radius: 10px;
+}
+
+.kv-cal-title {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  color: #cfff9f;
+}
+
+#kvGamesHub .kv-empty {
+  padding: 20px;
+  text-align: center;
+  color: var(--kv-muted);
+  font-size: 13px;
+}
+
+/* Скрыть дубли */
+#boxComingGames {
+  display: none !important;
+}
+
+#boxCenterActiveGames.kv-legacy-hidden,
+#boxCenterComingGames.kv-legacy-hidden {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* ——— Календари (десктоп: таблица) ——— */
+.kv-calendar-wrap {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+.kv-calendar-wrap .tblcalendar {
+  width: 100%;
+  max-width: 100%;
+  table-layout: fixed;
+}
+
+.kv-calendar-wrap .tblcalendar td {
+  font-size: 12px;
+  padding: 4px 6px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* ——— Адаптив: узкий центр (2 колонки карточек) ——— */
+@media (max-width: 1100px) {
+  #kvGamesHub,
+  .kv-calendar-wrap,
+  .kv-season-block {
+    padding: 12px;
+  }
+
+  #kvGamesHub .kv-game-grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+  }
+}
+
+/* ——— Адаптив: планшет / телефон (как kovrov.en.cx — узкая таблица, анонсы столбиком) ——— */
+@media (max-width: 768px) {
+  #kvGamesHub .kv-game-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: none !important;
+    gap: 12px !important;
+  }
+
+  #kvGamesHub .kv-game-card {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    grid-template-columns: none !important;
+    padding: 12px;
+  }
+
+  #kvGamesHub .kv-thumb-wrap {
+    grid-row: auto;
+    width: 100%;
+    max-height: 200px;
+    aspect-ratio: 16 / 9;
+    margin-bottom: 10px;
+  }
+
+  .kv-calendar-wrap table,
+  .kv-season-block table,
+  .kv-calendar-wrap .kv-cal-table,
+  .kv-season-block .tblcalendar2 {
+    display: none !important;
+  }
+
+  .kv-calendar-wrap .kv-cal-cards,
+  .kv-season-block .kv-cal-cards {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .kv-season-block__title {
+    font-size: 1rem;
+  }
+
+  #kvGamesHub .kv-tabs {
+    flex-wrap: wrap;
+    overflow-x: visible;
+    gap: 8px;
+    padding: 6px;
+  }
+
+  #kvGamesHub .kv-tabs button {
+    flex: 1 1 calc(50% - 8px);
+    min-width: 0;
+    white-space: normal;
+    text-align: center;
+    padding: 8px 10px;
+    font-size: 12px;
+    line-height: 1.2;
+  }
+
+  #kvGamesHub .kv-type-legend {
+    gap: 6px 10px;
+    font-size: 0.7rem;
+  }
+
+  #kvGamesHub .kv-game-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  #kvGamesHub .kv-game-card {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 12px;
+  }
+
+  #kvGamesHub .kv-thumb-wrap,
+  #kvGamesHub .kv-thumb-wrap--ph {
+    grid-row: auto;
+    grid-column: 1;
+    width: 100%;
+    height: auto;
+    max-height: 180px;
+    aspect-ratio: 16 / 9;
+  }
+
+  #kvGamesHub .kv-game-card__head,
+  #kvGamesHub .kv-game-card__title,
+  #kvGamesHub .kv-game-card__facts,
+  #kvGamesHub .kv-game-card__actions {
+    grid-column: 1;
+  }
+
+  #kvGamesHub .kv-game-card__facts dt {
+    float: none;
+    width: auto;
+    margin-bottom: 0;
+  }
+
+  #kvGamesHub .kv-game-card__facts dd {
+    margin: 0 0 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(45, 61, 45, 0.6);
+  }
+
+  #kvGamesHub .kv-game-card__facts dd:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  #kvGamesHub .kv-game-card__actions {
+    flex-direction: column;
+  }
+
+  #kvGamesHub .kv-game-card__actions .kv-btn {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 10px 12px;
+  }
+
+  #kvGamesHub .kv-participants {
+    color: var(--kv-text);
+    font-weight: 600;
+  }
+
+  .kv-calendar-wrap,
+  .kv-season-block {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 400px) {
+  #kvGamesHub .kv-legend-item {
+    flex: 1 1 45%;
+  }
+}\n\n/* === KOVCROV RESPONSIVE (mobile) === */\n/**
+ * Kovrov — полный мобильный адаптив (работает БЕЗ классов на html/body)
+ * Подключать ПОСЛЕДНИМ. Дублируется в kovrov-games-hub.css для сайтов без global/mobile.
+ */
+
+@media (max-width: 1100px) {
+  #tableContent > tbody > tr > td > table > tbody > tr {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  #tdContentLeft {
+    order: 1 !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  #tdContentCenter {
+    order: 2 !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  #tdContentRight {
+    order: 3 !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  #tdContentLeft .spacer[style*="width"] {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  html,
+  body {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-x: hidden !important;
+  }
+
+  /* На телефоне колонки EN не держим 175+220px */
+  #tdContentLeft,
+  #tdContentCenter,
+  #tdContentRight {
+    display: block !important;
+    float: none !important;
+    clear: both !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Addons / FAQ / произвольный HTML (только внутренние страницы, не главная) */
+  body.kv-page-inner #tdContentCenter pre {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-inner #tdContentCenter h1.PageTitle {
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: anywhere !important;
+    line-height: 1.3 !important;
+  }
+
+  body.kv-page-inner #tdContentCenter > table > tbody > tr > td {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-inner #tdContentCenter button {
+    max-width: 100% !important;
+    white-space: normal !important;
+  }
+
+  #tableContent > tbody > tr > td > table > tbody > tr {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Шапка: лого/бургер зафиксированы; звёзды absolute поверх верха лого */
+  #dnk_head {
+    position: relative !important;
+    display: block !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #000 !important;
+    overflow: visible !important;
+  }
+
+  #dnk_head .back {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    background: none !important;
+    background-image: none !important;
+  }
+
+  #dnk_head .kv-head-bar {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-end !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 8px 10px 10px !important;
+    position: relative !important;
+    z-index: 10 !important;
+    min-height: 0 !important;
+  }
+
+  #dnk_head {
+    text-align: left !important;
+  }
+
+  #dnk_head .kv-head-left {
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: flex-start !important;
+    -webkit-box-pack: start !important;
+    position: relative !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    max-width: calc(100% - 52px) !important;
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    align-self: stretch !important;
+  }
+
+  #dnk_head .logo {
+    position: relative !important;
+    top: auto !important;
+    left: 0 !important;
+    float: none !important;
+    text-align: left !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    flex: none !important;
+  }
+
+  #dnk_head .kv-head-brand {
+    display: block !important;
+    position: relative !important;
+    width: auto !important;
+    max-width: 100% !important;
+    line-height: 0 !important;
+    margin: 0 !important;
+    margin-right: auto !important;
+    padding: 0 !important;
+    text-align: left !important;
+    align-self: flex-start !important;
+    flex: 0 1 auto !important;
+  }
+
+  #dnk_head .kv-head-brand .logo {
+    position: relative !important;
+    top: auto !important;
+    left: 0 !important;
+    float: none !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    flex: none !important;
+  }
+
+  #dnk_head .kv-head-brand .star {
+    position: absolute !important;
+    top: 20px !important;
+    left: 31px !important;
+    z-index: 3 !important;
+    width: 140px !important;
+    height: 20px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: url(https://d1.endata.cx/images/personal/83308/kovrov_dnk_stars_2.png) top left no-repeat !important;
+    overflow: hidden !important;
+    pointer-events: auto !important;
+  }
+
+  #dnk_head .kv-head-brand .star .front,
+  #dnk_head .kv-head-brand .star .clear {
+    float: left !important;
+    height: 20px !important;
+    overflow: hidden !important;
+  }
+
+  #dnk_head .kv-head-brand .star .front img {
+    display: block !important;
+    height: 20px !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+
+  #dnk_head .kv-head-brand .logo {
+    z-index: 1 !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: min(100%, 220px) !important;
+    line-height: 0 !important;
+  }
+
+  #dnk_head .kv-head-brand .logo img {
+    display: block !important;
+    max-width: min(100%, 220px) !important;
+    height: auto !important;
+    margin: 0 !important;
+  }
+
+  /* Меню: скрыть горизонтальное, показать любой бургер */
+  table.menuWrap,
+  .menuWrap,
+  .menuWrap ul.menu,
+  ul.menu.menu,
+  .menuWrap td {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+  }
+
+  .menu-wrap,
+  #kvMenuFallback,
+  #dnk_head .menu-wrap,
+  #DivTopDesign > .menu-wrap {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    z-index: 100000 !important;
+  }
+
+  #dnk_head:has(.menu-wrap) + .menu-wrap {
+    display: none !important;
+  }
+
+  #dnk_head .kv-head-burger.menu-wrap,
+  #dnk_head .menu-wrap {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    flex: 0 0 48px !important;
+    width: 48px !important;
+    height: 48px !important;
+    margin: 0 !important;
+  }
+
+  #DivTopDesign > .menu-wrap {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    width: 56px !important;
+    height: 56px !important;
+  }
+
+  #dnk_head .menu-wrap.kv-head-burger,
+  #dnk_head #kvMenuFallback {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+  }
+
+  .menu-wrap .toggler {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 100002;
+    cursor: pointer;
+    width: 56px;
+    height: 56px;
+    opacity: 0;
+  }
+
+  #dnk_head .kv-burger-btn {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 5px !important;
+    width: 44px !important;
+    height: 44px !important;
+    padding: 10px 8px !important;
+    box-sizing: border-box !important;
+    cursor: pointer !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.35) !important;
+    border-radius: 6px !important;
+    position: relative !important;
+    z-index: 100051 !important;
+  }
+
+  #dnk_head .kv-burger-btn {
+    font-size: 0 !important;
+    line-height: 0 !important;
+  }
+
+  #dnk_head .kv-burger-btn::before {
+    content: "" !important;
+    display: block !important;
+    width: 22px !important;
+    height: 3px !important;
+    background: #fff !important;
+    border-radius: 1px !important;
+    box-shadow: 0 -8px 0 #fff, 0 8px 0 #fff !important;
+  }
+
+  #dnk_head .kv-burger-btn span {
+    display: none !important;
+  }
+
+  #dnk_head .menu-wrap .hamburger,
+  #dnk_head .menu-wrap label.hamburger {
+    display: none !important;
+  }
+
+  .menu-wrap .hamburger,
+  .menu-wrap label.hamburger {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 100001;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    padding: 16px;
+    cursor: pointer;
+  }
+
+  .menu-wrap .hamburger > div,
+  .menu-wrap label.hamburger > div {
+    position: relative;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+  }
+
+  .menu-wrap .hamburger > div::before,
+  .menu-wrap .hamburger > div::after,
+  .menu-wrap label.hamburger > div::before,
+  .menu-wrap label.hamburger > div::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: inherit;
+  }
+
+  .menu-wrap .hamburger > div::before,
+  .menu-wrap label.hamburger > div::before {
+    top: -8px;
+  }
+
+  .menu-wrap .hamburger > div::after,
+  .menu-wrap label.hamburger > div::after {
+    top: 8px;
+  }
+
+  .menu-wrap .toggler:checked + .hamburger > div,
+  .menu-wrap .toggler:checked + label.hamburger > div {
+    transform: rotate(135deg);
+  }
+
+  .menu-wrap .toggler:checked ~ .hamburger-menu {
+    visibility: visible !important;
+  }
+
+  .menu-wrap .hamburger-menu {
+    position: fixed;
+    inset: 0;
+    visibility: hidden;
+    z-index: 99999;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .menu-wrap .hamburger-menu > div {
+    background: rgba(45, 45, 45, 0.95);
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .menu-wrap .hamburger-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  .menu-wrap .hamburger-menu li {
+    padding: 0.5rem;
+    font-size: 1.15rem;
+  }
+
+  .menu-wrap .hamburger-menu a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /* ЛК */
+  #boxUser table,
+  #boxUser tbody,
+  #boxUser tr,
+  #boxUser td {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Календари на мобиле не показываем */
+  .kv-calendar-wrap,
+  .kv-season-block,
+  #motionCalendar,
+  #divCalendar,
+  #divCalendar2 {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    max-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    border: none !important;
+  }
+
+  .kv-cal-cards,
+  .kv-cal-card,
+  #motionCalendar table,
+  #motionCalendar2 table {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* Спонсоры: adaptive_kvrv скрывает #DivRightDesign — вернуть */
+  #tdContentRight {
+    display: block !important;
+    visibility: visible !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  #DivRightDesign {
+    display: block !important;
+    visibility: visible !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+    margin: 12px 0 0 !important;
+    padding: 0 8px 16px !important;
+    box-sizing: border-box !important;
+  }
+
+  #DivRightDesign .kv-sponsors-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #DivRightDesign .kv-panel {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Анонсы: один столбец */
+  #kvGamesHub .kv-game-grid,
+  #kvGamesHub ul.kv-game-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 12px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #kvGamesHub .kv-game-card {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    grid-template-columns: none !important;
+    box-sizing: border-box;
+  }
+
+  #kvGamesHub .kv-thumb-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: 200px !important;
+    aspect-ratio: 16 / 9;
+    margin: 0 0 10px !important;
+  }
+
+  #kvGamesHub .kv-tabs {
+    flex-wrap: wrap !important;
+  }
+
+  #kvGamesHub .kv-tabs button {
+    flex: 1 1 calc(50% - 6px) !important;
+    min-width: 0 !important;
+    white-space: normal !important;
+    font-size: 12px !important;
+  }
+
+  #kvGamesHub,
+  #boxCenterContent {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Профиль / команда → kovrov-inner-pages.css */
+}

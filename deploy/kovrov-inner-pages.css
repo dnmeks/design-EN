@@ -1,0 +1,2386 @@
+/**
+ * Внутренние страницы — мобила
+ * Подключать ПОСЛЕ kovrov-responsive.css
+ */
+
+@media (max-width: 768px) {
+  html.kv-html-theme,
+  html.kv-html-theme body.kv-page-inner {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+  }
+
+  body.kv-page-inner {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+
+  body.kv-page-inner #tableHeader,
+  body.kv-page-inner #tableContent,
+  body.kv-page-inner #tableContent table,
+  body.kv-page-inner #contentRow,
+  body.kv-page-inner #contentRow > td {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Левая колонка (ЛК) — не шире экрана */
+  body.kv-page-inner #tdContentLeft {
+    overflow-x: hidden !important;
+    padding: 8px 10px !important;
+  }
+
+  body.kv-page-inner #tdContentLeft > div,
+  body.kv-page-inner #tdContentLeft > div > div,
+  body.kv-page-inner #tdContentLeft .enPnl1,
+  body.kv-page-inner #tdContentLeft .leftPnlItem,
+  body.kv-page-inner #tdContentLeft #boxUser,
+  body.kv-page-inner #tdContentLeft #adminPanelLinkDiv,
+  body.kv-page-inner #tdContentLeft #boxNews,
+  body.kv-page-inner #tdContentLeft table,
+  body.kv-page-inner #tdContentLeft .tdWidth100p {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-inner #tdContentLeft .spacer,
+  body.kv-page-inner #tdContentLeft div.spacer {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    max-width: 0 !important;
+  }
+
+  body.kv-page-inner #tdContentLeft #boxUser table,
+  body.kv-page-inner #tdContentLeft #boxUser tr,
+  body.kv-page-inner #tdContentLeft #boxUser td,
+  body.kv-page-inner #tdContentLeft #adminPanelLinkDiv table,
+  body.kv-page-inner #tdContentLeft #adminPanelLinkDiv tr,
+  body.kv-page-inner #tdContentLeft #adminPanelLinkDiv td {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.25 !important;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-inner #tdContentLeft a,
+  body.kv-page-inner #tdContentLeft .lm {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  /* «Администраторская» — без стрелки >> (иконка dblRArrow) */
+  body.kv-page-inner #adminPanelLinkDiv td[align="right"],
+  body.kv-page-inner #adminPanelLinkDiv a:has(img[src*="dblRArrow"]),
+  body.kv-page-inner #adminPanelLinkDiv img[src*="dblRArrow"] {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    max-width: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    border: none !important;
+  }
+
+  body.kv-page-inner #adminPanelLinkDiv table[width="100%"] > tbody > tr > td.noPadMarg > table > tbody > tr > td:first-child {
+    width: 100% !important;
+  }
+
+  body.kv-page-inner #tdContentCenter {
+    overflow-x: hidden !important;
+    padding: 8px 10px !important;
+  }
+
+  body.kv-page-inner #tdContentCenter > div[style*="width"],
+  body.kv-page-inner #tdContentCenter .enPnl1,
+  body.kv-page-inner #tdContentCenter .pnGr2,
+  body.kv-page-inner #tdContentCenter .pnGr2 > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /*
+   * Сброс правил главной — вернуть таблицы EN.
+   * Не трогать: почту, форум, gameInfo, личное дело, команду, баланс (у них свои правила).
+   */
+  body.kv-page-inner:not(.kv-page-mail):not(.kv-page-guestbook):not(.kv-page-user):not(.kv-page-team):not(.kv-page-balance) #tdContentCenter table:not(.gameInfo),
+  body.kv-page-inner:not(.kv-page-mail):not(.kv-page-guestbook):not(.kv-page-user):not(.kv-page-team):not(.kv-page-balance) #tdContentCenter table:not(.gameInfo) tbody,
+  body.kv-page-inner:not(.kv-page-mail):not(.kv-page-guestbook):not(.kv-page-user):not(.kv-page-team):not(.kv-page-balance) #tdContentCenter table:not(.gameInfo) tr,
+  body.kv-page-inner:not(.kv-page-mail):not(.kv-page-guestbook):not(.kv-page-user):not(.kv-page-team):not(.kv-page-balance) #tdContentCenter table:not(.gameInfo) td,
+  body.kv-page-inner:not(.kv-page-mail):not(.kv-page-guestbook):not(.kv-page-user):not(.kv-page-team):not(.kv-page-balance) #tdContentCenter table:not(.gameInfo) th {
+    display: revert !important;
+    width: revert !important;
+    max-width: revert !important;
+    min-width: revert !important;
+    table-layout: revert !important;
+    white-space: revert !important;
+    word-wrap: revert !important;
+    overflow-wrap: revert !important;
+    position: static !important;
+    float: none !important;
+    margin: revert !important;
+    padding: revert !important;
+    background: revert !important;
+    border-radius: revert !important;
+  }
+
+  /* Каркас: ЛК → центр → право */
+  body.kv-page-inner #tableContent,
+  body.kv-page-inner #tableContent > tbody > tr > td,
+  body.kv-page-inner #tableContent > tbody > tr > td > table,
+  body.kv-page-inner #tdContentCenter,
+  body.kv-page-inner #tdContentCenter > table,
+  body.kv-page-inner #tdContentCenter > table > tbody > tr > td,
+  body.kv-page-inner #boxCenterContent {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-inner #tableContent > tbody > tr > td > table > tbody > tr {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  body.kv-page-inner #tdContentLeft,
+  body.kv-page-inner #tdContentCenter,
+  body.kv-page-inner #tdContentRight {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-inner #tdContentCenter > table[cellpadding] > tbody > tr > td {
+    padding: 8px 6px !important;
+  }
+
+  body.kv-page-inner:not(.kv-page-mail) #tdContentCenter img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  body.kv-page-inner #tdContentCenter .enPnl1 {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Вкладки (menuTabs) и панель действий */
+  body.kv-page-inner #tdContentCenter table.menuTabs,
+  body.kv-page-inner #tdContentCenter .subMenu table,
+  body.kv-page-inner #tdContentCenter #subMenu table {
+    display: table !important;
+    width: auto !important;
+    min-width: 100% !important;
+    max-width: none !important;
+    table-layout: auto !important;
+  }
+
+  body.kv-page-inner #tdContentCenter table.menuTabs tr,
+  body.kv-page-inner #tdContentCenter .subMenu table tr,
+  body.kv-page-inner #tdContentCenter #subMenu table tr {
+    display: table-row !important;
+  }
+
+  body.kv-page-inner #tdContentCenter table.menuTabs td,
+  body.kv-page-inner #tdContentCenter .subMenu table td,
+  body.kv-page-inner #tdContentCenter #subMenu table td {
+    display: table-cell !important;
+    width: auto !important;
+    white-space: nowrap !important;
+    vertical-align: middle !important;
+  }
+
+  body.kv-page-inner #tdContentCenter .subMenu,
+  body.kv-page-inner #tdContentCenter #subMenu {
+    display: block !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /*
+   * Произвольный контент (Addons.aspx, FAQ, регламенты и т.п.)
+   * iOS Safari + Android Chrome
+   */
+  body.kv-page-inner #tableContent > tbody > tr > td > table > tbody > tr {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  body.kv-page-inner #tdContentLeft,
+  body.kv-page-inner #tdContentCenter,
+  body.kv-page-inner #tdContentRight {
+    display: block !important;
+    float: none !important;
+    clear: both !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    -webkit-box-sizing: border-box !important;
+  }
+
+  body.kv-page-inner #tdContentLeft .comingGame,
+  body.kv-page-inner #tdContentLeft .comingGame a,
+  body.kv-page-inner #tdContentLeft .comingGame b,
+  body.kv-page-inner #tdContentLeft .comingGame span {
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  body.kv-page-inner:not(.kv-page-team):not(.kv-page-user):not(.kv-page-mail):not(.kv-page-balance) #tdContentCenter > table,
+  body.kv-page-inner:not(.kv-page-team):not(.kv-page-user):not(.kv-page-mail):not(.kv-page-balance) #tdContentCenter > table > tbody,
+  body.kv-page-inner:not(.kv-page-team):not(.kv-page-user):not(.kv-page-mail):not(.kv-page-balance) #tdContentCenter > table > tbody > tr,
+  body.kv-page-inner:not(.kv-page-team):not(.kv-page-user):not(.kv-page-mail):not(.kv-page-balance) #tdContentCenter > table > tbody > tr > td {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-inner:not(.kv-page-team):not(.kv-page-user):not(.kv-page-mail):not(.kv-page-balance) #tdContentCenter h1.PageTitle {
+    margin: 0 0 12px !important;
+    padding: 0 !important;
+    font-size: 1.2rem !important;
+    line-height: 1.3 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: anywhere !important;
+    white-space: normal !important;
+  }
+
+  body.kv-page-inner:not(.kv-page-team):not(.kv-page-user):not(.kv-page-mail):not(.kv-page-balance) #tdContentCenter pre {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 0 12px !important;
+    padding: 0 !important;
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box !important;
+    font-family: inherit !important;
+    font-size: 14px !important;
+    line-height: 1.45 !important;
+  }
+
+  body.kv-page-inner:not(.kv-page-team):not(.kv-page-user):not(.kv-page-mail):not(.kv-page-balance) #tdContentCenter p,
+  body.kv-page-inner:not(.kv-page-team):not(.kv-page-user):not(.kv-page-mail):not(.kv-page-balance) #tdContentCenter li,
+  body.kv-page-inner:not(.kv-page-team):not(.kv-page-user):not(.kv-page-mail):not(.kv-page-balance) #tdContentCenter div:not(.hamburger-menu):not(.hamburger-menu *) {
+    max-width: 100% !important;
+    word-wrap: break-word !important;
+    overflow-wrap: anywhere !important;
+    white-space: normal !important;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-inner:not(.kv-page-team):not(.kv-page-user):not(.kv-page-mail):not(.kv-page-balance) #tdContentCenter button {
+    display: inline-block !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: anywhere !important;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-inner:not(.kv-page-team):not(.kv-page-user):not(.kv-page-mail):not(.kv-page-balance) #tdContentCenter img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  body.kv-page-inner:not(.kv-page-team):not(.kv-page-user):not(.kv-page-mail):not(.kv-page-balance) #tdContentCenter iframe {
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /*
+   * GameDetails / анонс — table.gameInfo
+   * Каждый пункт: «Метка: значение» в одной строке (iOS + Android)
+   */
+  body.kv-page-inner #tdContentCenter table.gameInfo {
+    display: table !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    table-layout: auto !important;
+    border-collapse: separate !important;
+    border-spacing: 0 0 6px !important;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-inner #tdContentCenter table.gameInfo > tbody {
+    display: table-row-group !important;
+  }
+
+  body.kv-page-inner #tdContentCenter table.gameInfo > tbody > tr {
+    display: table-row !important;
+  }
+
+  body.kv-page-inner #tdContentCenter table.gameInfo > tbody > tr > td {
+    display: table-cell !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+    line-height: 1.45 !important;
+    padding: 5px 0 !important;
+    vertical-align: top !important;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-inner #tdContentCenter table.gameInfo td span,
+  body.kv-page-inner #tdContentCenter table.gameInfo td span.title,
+  body.kv-page-inner #tdContentCenter table.gameInfo td span.title b,
+  body.kv-page-inner #tdContentCenter table.gameInfo td b,
+  body.kv-page-inner #tdContentCenter table.gameInfo td a,
+  body.kv-page-inner #tdContentCenter table.gameInfo td .white,
+  body.kv-page-inner #tdContentCenter table.gameInfo td .bold,
+  body.kv-page-inner #tdContentCenter table.gameInfo td .white9,
+  body.kv-page-inner #tdContentCenter table.gameInfo td .gold19,
+  body.kv-page-inner #tdContentCenter table.gameInfo td .yellow_darkgreen19 {
+    display: inline !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+    margin: 0 !important;
+  }
+
+  /* Зелёная шапка: тип + название + «Обсуждение» — компактно (flex, iOS/Android) */
+  body.kv-page-inner #tdContentCenter table.gameInfo table[background*="green_lines"] {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    table-layout: auto !important;
+  }
+
+  body.kv-page-inner #tdContentCenter table.gameInfo table[background*="green_lines"] tbody {
+    display: block !important;
+  }
+
+  body.kv-page-inner #tdContentCenter table.gameInfo table[background*="green_lines"] tr {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    align-content: flex-start !important;
+    gap: 2px 6px !important;
+    padding: 6px 8px !important;
+    min-height: 0 !important;
+    height: auto !important;
+  }
+
+  body.kv-page-inner #tdContentCenter table.gameInfo table[background*="green_lines"] td {
+    display: block !important;
+    width: auto !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    border: none !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    vertical-align: middle !important;
+    line-height: 1.25 !important;
+  }
+
+  body.kv-page-inner #tdContentCenter table.gameInfo table[background*="green_lines"] td[nowrap],
+  body.kv-page-inner #tdContentCenter table.gameInfo table[background*="green_lines"] td[nowrap="nowrap"] {
+    white-space: normal !important;
+  }
+
+  body.kv-page-inner #tdContentCenter table.gameInfo table[background*="green_lines"] td:first-child {
+    flex: 0 0 26px !important;
+    width: 26px !important;
+    order: 1 !important;
+  }
+
+  body.kv-page-inner #tdContentCenter table.gameInfo table[background*="green_lines"] td:first-child img {
+    width: 24px !important;
+    height: 24px !important;
+    display: block !important;
+  }
+
+  body.kv-page-inner #tdContentCenter table.gameInfo table[background*="green_lines"] td:nth-child(2) {
+    flex: 0 1 auto !important;
+    order: 2 !important;
+    font-size: 13px !important;
+    color: #fff !important;
+  }
+
+  body.kv-page-inner #tdContentCenter table.gameInfo table[background*="green_lines"] td:nth-child(3) {
+    flex: 0 0 auto !important;
+    order: 3 !important;
+    font-size: 12px !important;
+  }
+
+  body.kv-page-inner #tdContentCenter table.gameInfo table[background*="green_lines"] td.yellow_darkgreen19,
+  body.kv-page-inner #tdContentCenter table.gameInfo table[background*="green_lines"] td[width="100%"] {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+    order: 5 !important;
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    padding-top: 4px !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+  }
+
+  /* (#номер) «название игры» — крупнее, до ~2 строк */
+  body.kv-page-inner #tdContentCenter table.gameInfo table[background*="green_lines"] td.yellow_darkgreen19 .gold19,
+  body.kv-page-inner #tdContentCenter table.gameInfo table[background*="green_lines"] #GameDetail_GameHeader_lblGameNum {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    font-weight: 600 !important;
+  }
+
+  body.kv-page-inner #tdContentCenter table.gameInfo table[background*="green_lines"] a#lnkGameTitle,
+  body.kv-page-inner #tdContentCenter table.gameInfo table[background*="green_lines"] td.yellow_darkgreen19 a.yellow_darkgreen19,
+  body.kv-page-inner #tdContentCenter table.gameInfo table[background*="green_lines"] .yellow_darkgreen19 {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 600 !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  body.kv-page-inner #tdContentCenter table.gameInfo table[background*="green_lines"] #GameDetail_GameHeader_lblGameTypeName {
+    font-size: 13px !important;
+    font-weight: 600 !important;
+  }
+
+  body.kv-page-inner #tdContentCenter table.gameInfo table[background*="green_lines"] td:has(#lnkGbTopic) {
+    flex: 0 0 auto !important;
+    order: 4 !important;
+    margin-left: auto !important;
+    padding-right: 0 !important;
+    font-size: 12px !important;
+    white-space: nowrap !important;
+  }
+
+  body.kv-page-inner #tdContentCenter table.gameInfo table[background*="green_lines"] #lnkGbTopic {
+    font-size: 12px !important;
+    white-space: nowrap !important;
+  }
+
+  body.kv-page-inner #tdContentCenter table.gameInfo .spacer {
+    height: 4px !important;
+    min-height: 0 !important;
+  }
+
+  body.kv-page-inner #tdContentCenter table.gameInfo .subMenu,
+  body.kv-page-inner #tdContentCenter table.gameInfo #subMenu {
+    font-size: 11px !important;
+    line-height: 1.35 !important;
+    margin: 4px 0 6px !important;
+  }
+
+  /*
+   * Анонс: время окончания — отдельная строка; взнос + кнопка — в одной;
+   * призовой фонд — следующей. EN: height="18" сжимает строку.
+   */
+  body.kv-page-inner #tdContentCenter table.gameInfo > tbody > tr > td[height] {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    vertical-align: top !important;
+  }
+
+  body.kv-page-inner #tdContentCenter table.gameInfo > tbody > tr.kv-game-row-end > td,
+  body.kv-page-inner #tdContentCenter table.gameInfo > tbody > tr:has(+ tr [id^="TimerText"]) > td,
+  body.kv-page-inner
+    #tdContentCenter
+    table.gameInfo
+    > tbody
+    > tr:has(+ tr > td a[href*="MakeGameFee.aspx"])
+    > td {
+    display: table-cell !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 6px 0 16px !important;
+    line-height: 1.45 !important;
+    overflow: visible !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    z-index: 1 !important;
+  }
+
+  body.kv-page-inner #tdContentCenter table.gameInfo > tbody > tr.kv-game-row-timer > td,
+  body.kv-page-inner #tdContentCenter table.gameInfo > tbody > tr:has([id^="TimerText"]) > td {
+    padding-bottom: 12px !important;
+  }
+
+  body.kv-page-inner #tdContentCenter table.gameInfo > tbody > tr.kv-game-row-fee,
+  body.kv-page-inner #tdContentCenter table.gameInfo > tbody > tr:has(td a[href*="MakeGameFee.aspx"]) {
+    display: table-row !important;
+    height: auto !important;
+    overflow: visible !important;
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  body.kv-page-inner #tdContentCenter table.gameInfo > tbody > tr.kv-game-row-fee > td,
+  body.kv-page-inner
+    #tdContentCenter
+    table.gameInfo
+    > tbody
+    > tr:has(td a[href*="MakeGameFee.aspx"])
+    > td {
+    display: table-cell !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 4px 0 14px !important;
+    overflow: visible !important;
+    box-sizing: border-box !important;
+    line-height: 1.45 !important;
+    vertical-align: top !important;
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  /* flex внутри div — WebKit не растягивает td с display:flex */
+  body.kv-page-inner #tdContentCenter table.gameInfo .kv-fee-row {
+    display: flex !important;
+    flex-flow: row wrap !important;
+    align-items: center !important;
+    align-content: flex-start !important;
+    gap: 8px 10px !important;
+    width: 100% !important;
+    min-height: 2.75rem !important;
+    margin: 0 !important;
+    padding: 6px 0 !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    overflow: visible !important;
+  }
+
+  body.kv-page-inner #tdContentCenter table.gameInfo .kv-fee-row span,
+  body.kv-page-inner #tdContentCenter table.gameInfo .kv-fee-row .title,
+  body.kv-page-inner #tdContentCenter table.gameInfo .kv-fee-row .aqua,
+  body.kv-page-inner #tdContentCenter table.gameInfo .kv-fee-row .padL3 {
+    display: inline !important;
+    margin: 0 !important;
+    vertical-align: middle !important;
+  }
+
+  body.kv-page-inner #tdContentCenter table.gameInfo .kv-fee-row a[href*="MakeGameFee.aspx"],
+  body.kv-page-inner #tdContentCenter table.gameInfo .kv-fee-row a.kv-btn-confirm-fee {
+    flex: 0 0 auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: static !important;
+    float: none !important;
+    clear: none !important;
+    width: auto !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 8px 12px !important;
+    vertical-align: middle !important;
+    white-space: normal !important;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-inner #tdContentCenter table.gameInfo > tbody > tr.kv-game-row-prize > td,
+  body.kv-page-inner #tdContentCenter table.gameInfo > tbody > tr:has(#GameDetail_lblPrizeCurrency) > td {
+    display: table-cell !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 16px 0 10px !important;
+    line-height: 1.45 !important;
+    overflow: visible !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    z-index: 1 !important;
+  }
+
+  /* ——— Форум Guestbook.aspx ——— */
+  body.kv-page-guestbook #tdContentCenter table.bg_light2,
+  body.kv-page-guestbook #tdContentCenter table.bg_light2.w100per,
+  body.kv-page-guestbook #tdContentCenter table.tblGBSection {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    table-layout: auto !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    box-sizing: border-box !important;
+    margin: 0 0 16px !important;
+  }
+
+  body.kv-page-guestbook #tdContentCenter table.bg_light2 > tbody,
+  body.kv-page-guestbook #tdContentCenter table.bg_light2.w100per > tbody,
+  body.kv-page-guestbook #tdContentCenter table.tblGBSection > tbody {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  body.kv-page-guestbook #tdContentCenter table.bg_light2 div[style*="width"] {
+    width: auto !important;
+    max-width: 100% !important;
+  }
+
+  body.kv-page-guestbook #tdContentCenter table.bg_light2 > tbody > tr:first-child,
+  body.kv-page-guestbook #tdContentCenter table.bg_light2.w100per > tbody > tr:first-child,
+  body.kv-page-guestbook #tdContentCenter table.tblGBSection > tbody > tr:first-child {
+    display: none !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  body.kv-page-guestbook #tdContentCenter table.bg_light2 > tbody > tr.forumRow,
+  body.kv-page-guestbook #tdContentCenter table.bg_light2 > tbody > tr.infoRow,
+  body.kv-page-guestbook #tdContentCenter table.bg_light2.w100per > tbody > tr.forumRow,
+  body.kv-page-guestbook #tdContentCenter table.bg_light2.w100per > tbody > tr.infoRow,
+  body.kv-page-guestbook #tdContentCenter table.tblGBSection > tbody > tr.forumRow,
+  body.kv-page-guestbook #tdContentCenter table.tblGBSection > tbody > tr.infoRow {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    box-sizing: border-box !important;
+    margin: 0 0 10px !important;
+    padding: 0 !important;
+    clear: both !important;
+    position: relative !important;
+    overflow: visible !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+
+  body.kv-page-guestbook #tdContentCenter table.bg_light2 > tbody > tr.forumRow:last-child,
+  body.kv-page-guestbook #tdContentCenter table.bg_light2 > tbody > tr.infoRow:last-child,
+  body.kv-page-guestbook #tdContentCenter table.bg_light2.w100per > tbody > tr.forumRow:last-child,
+  body.kv-page-guestbook #tdContentCenter table.bg_light2.w100per > tbody > tr.infoRow:last-child,
+  body.kv-page-guestbook #tdContentCenter table.tblGBSection > tbody > tr.forumRow:last-child,
+  body.kv-page-guestbook #tdContentCenter table.tblGBSection > tbody > tr.infoRow:last-child {
+    margin-bottom: 0 !important;
+    border-bottom: none !important;
+  }
+
+  body.kv-page-guestbook #tdContentCenter table.bg_light2 > tbody > tr.forumRow > td,
+  body.kv-page-guestbook #tdContentCenter table.bg_light2 > tbody > tr.infoRow > td,
+  body.kv-page-guestbook #tdContentCenter table.bg_light2.w100per > tbody > tr.forumRow > td,
+  body.kv-page-guestbook #tdContentCenter table.bg_light2.w100per > tbody > tr.infoRow > td,
+  body.kv-page-guestbook #tdContentCenter table.tblGBSection > tbody > tr.forumRow > td,
+  body.kv-page-guestbook #tdContentCenter table.tblGBSection > tbody > tr.infoRow > td {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: 8px 10px !important;
+    text-align: left !important;
+    line-height: 1.45 !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: anywhere !important;
+    float: none !important;
+    clear: both !important;
+    position: static !important;
+    vertical-align: top !important;
+  }
+
+  body.kv-page-guestbook #tdContentCenter table.bg_light2 tr.forumRow > td[height],
+  body.kv-page-guestbook #tdContentCenter table.bg_light2 tr.infoRow > td[height],
+  body.kv-page-guestbook #tdContentCenter table.bg_light2.w100per tr.forumRow > td[height],
+  body.kv-page-guestbook #tdContentCenter table.bg_light2.w100per tr.infoRow > td[height],
+  body.kv-page-guestbook #tdContentCenter table.tblGBSection tr.forumRow > td[height],
+  body.kv-page-guestbook #tdContentCenter table.tblGBSection tr.infoRow > td[height] {
+    height: auto !important;
+  }
+
+  /* Публикации: отступ между текстом и блоком «Отзывы» */
+  body.kv-page-guestbook #tdContentCenter table.bg_light2:not(.w100per) > tbody > tr.forumRow > td:nth-child(3),
+  body.kv-page-guestbook #tdContentCenter table.bg_light2:not(.w100per) > tbody > tr.infoRow > td:nth-child(3) {
+    padding-top: 6px !important;
+    margin-top: 2px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Игры: название раздела и последнее сообщение — с промежутком */
+  body.kv-page-guestbook #tdContentCenter table.bg_light2.w100per > tbody > tr.forumRow > td:nth-child(2),
+  body.kv-page-guestbook #tdContentCenter table.bg_light2.w100per > tbody > tr.infoRow > td:nth-child(2),
+  body.kv-page-guestbook #tdContentCenter table.tblGBSection > tbody > tr.forumRow > td:nth-child(2),
+  body.kv-page-guestbook #tdContentCenter table.tblGBSection > tbody > tr.infoRow > td:nth-child(2) {
+    padding-bottom: 4px !important;
+  }
+
+  body.kv-page-guestbook #tdContentCenter table.bg_light2.w100per > tbody > tr.forumRow > td:nth-child(3),
+  body.kv-page-guestbook #tdContentCenter table.bg_light2.w100per > tbody > tr.infoRow > td:nth-child(3),
+  body.kv-page-guestbook #tdContentCenter table.tblGBSection > tbody > tr.forumRow > td:nth-child(3),
+  body.kv-page-guestbook #tdContentCenter table.tblGBSection > tbody > tr.infoRow > td:nth-child(3) {
+    padding-top: 0 !important;
+    padding-bottom: 10px !important;
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+  }
+
+  body.kv-page-guestbook #tdContentCenter table.bg_light2 div[style*="height: 4px"],
+  body.kv-page-guestbook #tdContentCenter table.bg_light2 div[style*="height:4px"] {
+    display: none !important;
+    height: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Публикации: без «Автор» и «Прочитана» */
+  body.kv-page-guestbook #tdContentCenter table.bg_light2:not(.w100per) > tbody > tr > td:nth-child(2),
+  body.kv-page-guestbook #tdContentCenter table.bg_light2:not(.w100per) > tbody > tr > td:nth-child(4) {
+    display: none !important;
+  }
+
+  /* Игры и разделы: без иконки, «Темы», «Сообщения» */
+  body.kv-page-guestbook #tdContentCenter table.bg_light2.w100per > tbody > tr > td:nth-child(1),
+  body.kv-page-guestbook #tdContentCenter table.bg_light2.w100per > tbody > tr > td:nth-child(4),
+  body.kv-page-guestbook #tdContentCenter table.bg_light2.w100per > tbody > tr > td:nth-child(5),
+  body.kv-page-guestbook #tdContentCenter table.tblGBSection > tbody > tr > td:nth-child(1),
+  body.kv-page-guestbook #tdContentCenter table.tblGBSection > tbody > tr > td:nth-child(4),
+  body.kv-page-guestbook #tdContentCenter table.tblGBSection > tbody > tr > td:nth-child(5) {
+    display: none !important;
+  }
+
+  body.kv-page-guestbook #tdContentCenter table.bg_light2:not(.w100per) tr.forumRow > td:first-child table,
+  body.kv-page-guestbook #tdContentCenter table.bg_light2:not(.w100per) tr.infoRow > td:first-child table {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  body.kv-page-guestbook #tdContentCenter table.bg_light2:not(.w100per) tr.forumRow > td:first-child table tr,
+  body.kv-page-guestbook #tdContentCenter table.bg_light2:not(.w100per) tr.infoRow > td:first-child table tr {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+
+  body.kv-page-guestbook #tdContentCenter table.bg_light2:not(.w100per) tr.forumRow > td:first-child table td:first-child,
+  body.kv-page-guestbook #tdContentCenter table.bg_light2:not(.w100per) tr.infoRow > td:first-child table td:first-child {
+    display: block !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  body.kv-page-guestbook #tdContentCenter table.bg_light2:not(.w100per) tr.forumRow > td:first-child table td:nth-child(2),
+  body.kv-page-guestbook #tdContentCenter table.bg_light2:not(.w100per) tr.infoRow > td:first-child table td:nth-child(2) {
+    display: block !important;
+    flex: 1 1 auto !important;
+    width: auto !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    padding: 0 0 0 12px !important;
+    margin: 0 !important;
+  }
+
+  body.kv-page-guestbook #tdContentCenter table.bg_light2:not(.w100per) tr.forumRow > td:first-child img,
+  body.kv-page-guestbook #tdContentCenter table.bg_light2:not(.w100per) tr.infoRow > td:first-child img {
+    display: block !important;
+    width: auto !important;
+    max-width: 56px !important;
+    height: auto !important;
+    margin: 0 !important;
+    flex: 0 0 auto !important;
+  }
+
+  body.kv-page-guestbook #tdContentCenter table.bg_light2 a,
+  body.kv-page-guestbook #tdContentCenter table.bg_light2.w100per a,
+  body.kv-page-guestbook #tdContentCenter table.tblGBSection a {
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  body.kv-page-guestbook #forum_simple_search {
+    min-width: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  body.kv-page-guestbook #forum_simple_search input.textbox {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-guestbook #tdContentCenter > table > tbody > tr > td > div[style*="padding-bottom: 7px"] table[width="100%"] > tbody > tr > td[width="10"],
+  body.kv-page-guestbook #tdContentCenter > table > tbody > tr > td > div[style*="padding-bottom: 7px"] table[width="100%"] + table > tbody > tr > td[align="right"] {
+    display: none !important;
+  }
+
+  body.kv-page-guestbook #tdContentCenter > table > tbody > tr > td > div[style*="padding-bottom: 7px"] table[width="100%"] + table + span.Text5 {
+    display: none !important;
+  }
+
+  /* ——— Страница команды ——— */
+  body.kv-page-team #tdContentCenter .pnGr2 > table > tbody > tr {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  body.kv-page-team #tdContentCenter .pnGr2 > table > tbody > tr > td[width="266"],
+  body.kv-page-team #tdContentCenter .pnGr2 > table > tbody > tr > td:first-child {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    padding: 0 0 12px !important;
+    text-align: center !important;
+  }
+
+  body.kv-page-team #tdContentCenter .pnGr2 #imgFlag {
+    width: auto !important;
+    max-width: min(100%, 280px) !important;
+    height: auto !important;
+  }
+
+  body.kv-page-team #tdContentCenter .pnGr2 > table > tbody > tr > td[style*="padding-left"] {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-team #tdContentCenter .pnGr2 > table > tbody > tr > td[style*="padding-left"] table {
+    width: 100% !important;
+    table-layout: auto !important;
+  }
+
+  /* Заголовок «Команда … | Информация» — как на kovrov.en.cx */
+  body.kv-page-team #tdContentCenter .pnGr2 table table {
+    width: 100% !important;
+    table-layout: fixed !important;
+  }
+
+  body.kv-page-team #tdContentCenter .pnGr2 table table tr {
+    display: table-row !important;
+  }
+
+  body.kv-page-team #tdContentCenter .pnGr2 table table td {
+    display: table-cell !important;
+    white-space: normal !important;
+    vertical-align: top !important;
+    padding: 0 0 6px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Форум: не показываем на мобиле (на эталоне между статистикой и вкладками его нет) */
+  body.kv-page-team #tdContentCenter table.tblGBSection {
+    display: none !important;
+  }
+
+  /* Вкладки — перенос кнопками в 2 ряда, как на эталоне */
+  body.kv-page-team #tdContentCenter table.w100per,
+  body.kv-page-team #tdContentCenter table.w100per > tbody,
+  body.kv-page-team #tdContentCenter table.w100per > tbody > tr,
+  body.kv-page-team #tdContentCenter table.w100per > tbody > tr > td {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-team #tdContentCenter table.enTab,
+  body.kv-page-team #tdContentCenter table.tblList.enTab {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0 10px !important;
+    border-collapse: separate !important;
+  }
+
+  body.kv-page-team #tdContentCenter table.enTab tbody {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  body.kv-page-team #tdContentCenter table.enTab tr {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: stretch !important;
+    gap: 6px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  body.kv-page-team #tdContentCenter table.enTab td.tab {
+    display: block !important;
+    flex: 1 1 calc(33.333% - 6px) !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    width: auto !important;
+    white-space: normal !important;
+    vertical-align: middle !important;
+    float: none !important;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-team #tdContentCenter table.enTab td.td_last {
+    display: none !important;
+  }
+
+  body.kv-page-team #tdContentCenter table.enTab td.tab a {
+    display: block !important;
+    white-space: normal !important;
+    text-align: center !important;
+    line-height: 1.25 !important;
+  }
+
+  body.kv-page-team #tdContentCenter .tabCntHolder_alt,
+  body.kv-page-team #tdContentCenter .tabContent,
+  body.kv-page-team #tdContentCenter #content.tabContent {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-team #tdContentCenter .tabCntHolder_alt > div,
+  body.kv-page-team #tdContentCenter .tabContent > div[style*="width"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /*
+   * Списки: 1 запись = 1 строка на всю ширину.
+   * table-layout: auto — узкие колонки по контенту, имя/ник забирает остаток.
+   */
+  body.kv-page-team #tdContentCenter .tabContent table[border="0"]:not(.bg_light2),
+  body.kv-page-team #tdContentCenter .tabContent table[cellspacing="0"][width="100%"],
+  body.kv-page-team #tdContentCenter form#aspnetForm table[width="100%"][cellspacing="0"] {
+    display: table !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    table-layout: auto !important;
+    border-collapse: collapse !important;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-team #tdContentCenter .tabContent table[border="0"]:not(.bg_light2) tbody,
+  body.kv-page-team #tdContentCenter .tabContent table[cellspacing="0"][width="100%"] tbody,
+  body.kv-page-team #tdContentCenter form#aspnetForm table[width="100%"][cellspacing="0"] tbody {
+    display: table-row-group !important;
+  }
+
+  body.kv-page-team #tdContentCenter .tabContent table[border="0"]:not(.bg_light2) tr,
+  body.kv-page-team #tdContentCenter .tabContent table[cellspacing="0"][width="100%"] tr,
+  body.kv-page-team #tdContentCenter form#aspnetForm table[width="100%"][cellspacing="0"] tr {
+    display: table-row !important;
+  }
+
+  body.kv-page-team #tdContentCenter .tabContent table[border="0"]:not(.bg_light2) td,
+  body.kv-page-team #tdContentCenter .tabContent table[cellspacing="0"][width="100%"] td,
+  body.kv-page-team #tdContentCenter form#aspnetForm table[width="100%"][cellspacing="0"] td {
+    display: table-cell !important;
+    vertical-align: middle !important;
+    padding: 2px 6px 2px 0 !important;
+    box-sizing: border-box !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+  }
+
+  /* Пустой spacer только в «Составе» (колонка «удалить из команды») */
+  body.kv-page-team #tdContentCenter .tabContent tr:has(a[id*="lnkRemoveFromTeam"]) td[width="100%"] {
+    width: 0 !important;
+    max-width: 0 !important;
+    padding: 0 !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    overflow: hidden !important;
+    border: none !important;
+  }
+
+  /* Награды: текст ордена на всю оставшуюся ширину */
+  body.kv-page-team #tdContentCenter .tabContent table[width="100%"][border="0"]:not(.bg_light2) tr[valign="top"] td[width="100%"] {
+    width: auto !important;
+    max-width: none !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+  }
+
+  /* Послужной список: колонка «Название» */
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 td[width="100%"] {
+    width: auto !important;
+    max-width: none !important;
+    white-space: normal !important;
+    text-align: left !important;
+  }
+
+  body.kv-page-team #tdContentCenter .tabContent table td[colspan] {
+    display: table-cell !important;
+    white-space: normal !important;
+  }
+
+  /* Основной / запасной состав, капитан — всё в одну строку */
+  body.kv-page-team #tdContentCenter .tabContent table[border="0"]:not(.bg_light2) tr:not(:has(td[colspan])) td {
+    white-space: nowrap !important;
+  }
+
+  body.kv-page-team #tdContentCenter .tabContent table[border="0"]:not(.bg_light2) tr:not(:has(td[colspan])) td:nth-child(4) {
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    width: 99% !important;
+  }
+
+  body.kv-page-team #tdContentCenter .tabContent table[border="0"]:not(.bg_light2) tr:not(:has(td[colspan])) td:nth-child(4) a {
+    white-space: normal !important;
+    word-break: normal !important;
+  }
+
+  /* ——— Послужной список (table.bg_light2) ——— */
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2,
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2.w100per,
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2,
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2.w100per {
+    display: table !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
+    table-layout: auto !important;
+    border-collapse: separate !important;
+    border-spacing: 1px !important;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-team #tdContentCenter .tabContent table[width="100%"][border="0"]:not(.bg_light2) {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 tbody,
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 tbody {
+    display: table-row-group !important;
+  }
+
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 tr,
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 tr {
+    display: table-row !important;
+  }
+
+  /* Плейсхолдер «Загрузка…» — выше общего table-row */
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 tr.kv-sr-placeholder,
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 tr.kv-sr-placeholder,
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 tr.kv-sr-detail:not(.kv-sr-open),
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 tr.kv-sr-detail:not(.kv-sr-open),
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 tr.kv-sr-loading-row,
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 tr.kv-sr-loading-row,
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 tr:has(> td.kv-sr-loading-cell:only-child),
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 tr:has(> td.kv-sr-loading-cell:only-child),
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 tr:has(> td[colspan].kv-sr-loading-cell),
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 tr:has(> td[colspan].kv-sr-loading-cell) {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    max-height: 0 !important;
+    line-height: 0 !important;
+    font-size: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    overflow: hidden !important;
+  }
+
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 tr.kv-sr-open,
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 tr.kv-sr-open {
+    display: table-row !important;
+    visibility: visible !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 td.kv-sr-loading-cell,
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 td.kv-sr-loading-cell,
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 tr.kv-sr-placeholder td,
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 tr.kv-sr-placeholder td,
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 tr.kv-sr-loading-row td,
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 tr.kv-sr-loading-row td {
+    display: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    color: transparent !important;
+    visibility: hidden !important;
+    border: none !important;
+  }
+
+  /* Сворачивание строк деталей (EN ставит display:none) — не перебивать */
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 > tbody > tr[style*="display: none"],
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 > tbody > tr[style*="display:none"],
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 > tbody > tr[data-kv-sr="collapsed"],
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 > tbody > tr[style*="display: none"],
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 > tbody > tr[style*="display:none"],
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 > tbody > tr[data-kv-sr="collapsed"] {
+    display: none !important;
+  }
+
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 > tbody > tr[data-kv-sr="expanded"],
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 > tbody > tr[data-kv-sr="expanded"] {
+    display: table-row !important;
+  }
+
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 td,
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 td {
+    display: table-cell !important;
+    width: auto !important;
+    max-width: none !important;
+    vertical-align: middle !important;
+    padding: 6px 8px !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Шапка: Игры | Результат | Название (команда) / № Дата Игра… (личное дело) */
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 > tbody > tr:first-child td,
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 tr.topWinnerHead td,
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 > tbody > tr:first-child td,
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 tr.topWinnerHead td {
+    white-space: nowrap !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+    font-weight: bold !important;
+  }
+
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 tr:has(> td:nth-child(6)):not(:has(.gameIcon)) td {
+    white-space: nowrap !important;
+    vertical-align: middle !important;
+  }
+
+  /* Строка зоны: иконка | список (N) | победы | название */
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 tr:has(.gameIcon) td,
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 tr:has(a[href*="zone="]) td,
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 tr:has(.gameIcon) td,
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 tr:has(a[href*="zone="]) td {
+    white-space: nowrap !important;
+    vertical-align: middle !important;
+  }
+
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 tr:has(.gameIcon) td:first-child,
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 tr:has(a[href*="zone="]) td:first-child,
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 tr:has(.gameIcon) td:first-child,
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 tr:has(a[href*="zone="]) td:first-child {
+    width: 48px !important;
+    text-align: center !important;
+    padding: 4px !important;
+  }
+
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 tr:has(.gameIcon) td:last-child,
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 tr:has(a[href*="zone="]) td:last-child,
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 tr:has(.gameIcon) td:last-child,
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 tr:has(a[href*="zone="]) td:last-child {
+    white-space: normal !important;
+    text-align: left !important;
+  }
+
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 .gameIcon,
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 .gameIcon a,
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 .gameIcon,
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 .gameIcon a {
+    display: inline-block !important;
+    vertical-align: middle !important;
+  }
+
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 td a[href*="HowTo.aspx"],
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 td a[href*="HowTo.aspx"] {
+    display: inline !important;
+    margin-left: 4px !important;
+    white-space: nowrap !important;
+    vertical-align: middle !important;
+  }
+
+  /* «Загрузка…» / развёрнутый список игр — на всю ширину таблицы */
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 tr:has(td[colspan]) td[colspan],
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 tr:has(td[colspan]) td[colspan] {
+    width: 100% !important;
+    text-align: left !important;
+    white-space: normal !important;
+    padding: 6px 8px !important;
+  }
+
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 tr:has(td:only-child) td:only-child,
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 tr:has(td:only-child) td:only-child {
+    width: 100% !important;
+    text-align: left !important;
+    white-space: normal !important;
+  }
+
+  /* Вложенная таблица со списком игр (после клика «список») */
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 table,
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 + table,
+  body.kv-page-team #tdContentCenter .tabCntHolder_alt table.bg_light2 table,
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 table,
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 + table,
+  body.kv-page-user #tdContentCenter .tabCntHolder_alt table.bg_light2 table {
+    display: table !important;
+    width: 100% !important;
+    table-layout: auto !important;
+    border-collapse: collapse !important;
+  }
+
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 table tr,
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 + table tr,
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 table tr,
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 + table tr {
+    display: table-row !important;
+  }
+
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 table td,
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 + table td,
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 table td,
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 + table td {
+    display: table-cell !important;
+    width: auto !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    vertical-align: top !important;
+    padding: 4px 6px !important;
+  }
+
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 table td:first-child,
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 + table td:first-child,
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 table td:first-child,
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 + table td:first-child {
+    width: 1.8em !important;
+    white-space: nowrap !important;
+    color: rgba(255, 255, 255, 0.45) !important;
+  }
+
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 table td:nth-child(2),
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 + table td:nth-child(2),
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 table td:nth-child(2),
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 + table td:nth-child(2) {
+    width: 6.5em !important;
+    white-space: nowrap !important;
+  }
+
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 table td:last-child,
+  body.kv-page-team #tdContentCenter .tabContent table.bg_light2 + table td:last-child,
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 table td:last-child,
+  body.kv-page-user #tdContentCenter .tabContent table.bg_light2 + table td:last-child {
+    width: auto !important;
+  }
+
+  /* Приглашённые: id | значок | ник | «Активный» */
+  body.kv-page-team #tdContentCenter .tabContent tr:has(> td:nth-child(4)):not(:has(> td:nth-child(4) a)):not(:has(a[id*="lnkAcceptInvitation"])):not(:has(a[id*="lnkRemoveRequest"])):not(:has(td[colspan])) td {
+    white-space: nowrap !important;
+    width: 1% !important;
+  }
+
+  body.kv-page-team #tdContentCenter .tabContent tr:has(> td:nth-child(4)):not(:has(> td:nth-child(4) a)):not(:has(a[id*="lnkAcceptInvitation"])):not(:has(a[id*="lnkRemoveRequest"])) td:nth-child(3) {
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    width: 99% !important;
+  }
+
+  body.kv-page-team #tdContentCenter .tabContent tr:has(> td:nth-child(4)):not(:has(> td:nth-child(4) a)):not(:has(a[id*="lnkAcceptInvitation"])) td:nth-child(3) a {
+    white-space: normal !important;
+    word-break: normal !important;
+  }
+
+  /* Приглашения в команду: id | название | Вступить | Отказать */
+  body.kv-page-team #tdContentCenter form#aspnetForm tr:has(a[id*="lnkAcceptInvitation"]) td,
+  body.kv-page-team #tdContentCenter form#aspnetForm tr:has(a[id*="lnkRemoveRequest"]) td {
+    white-space: nowrap !important;
+    width: 1% !important;
+    vertical-align: middle !important;
+  }
+
+  body.kv-page-team #tdContentCenter form#aspnetForm tr:has(a[id*="lnkAcceptInvitation"]) td:nth-child(2),
+  body.kv-page-team #tdContentCenter form#aspnetForm tr:has(a[id*="lnkRemoveRequest"]) td:nth-child(2) {
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    width: 99% !important;
+    text-align: left !important;
+  }
+
+  body.kv-page-team #tdContentCenter form#aspnetForm tr:has(a[id*="lnkAcceptInvitation"]) td:nth-child(2) a {
+    white-space: normal !important;
+    word-break: normal !important;
+  }
+
+  body.kv-page-team #tdContentCenter form#aspnetForm tr:has(a[id*="lnkAcceptInvitation"]) td:first-child {
+    text-align: right !important;
+    padding-right: 8px !important;
+  }
+
+  body.kv-page-team #tdContentCenter .tabContent table[cellspacing="0"] tr td.padL10 img,
+  body.kv-page-team #tdContentCenter .tabContent table[border="0"] tr td.padL10 img {
+    vertical-align: middle !important;
+  }
+
+  /* ——— Личное дело (UserDetails) ——— */
+  body.kv-page-user #tdContentLeft {
+    overflow-x: visible !important;
+    max-width: 100% !important;
+  }
+
+  body.kv-page-user #tdContentLeft,
+  body.kv-page-user #tdContentLeft .enPnl1,
+  body.kv-page-user #tdContentLeft #boxUser,
+  body.kv-page-user #tdContentLeft #boxUser > div {
+    overflow: visible !important;
+    max-width: 100% !important;
+  }
+
+  body.kv-page-user #tdContentLeft #tblUserBox td,
+  body.kv-page-user #tdContentLeft #adminPanelLinkDiv td {
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  body.kv-page-user #tdContentRight,
+  body.kv-page-user #tdContentRight table,
+  body.kv-page-user #DivRightDesign,
+  body.kv-page-user #DivRightDesign .kv-panel {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+  }
+
+  body.kv-page-user #tdContentRight .spacer[style*="width"],
+  body.kv-page-user #tdContentRight td > .spacer {
+    display: none !important;
+    width: 0 !important;
+    max-width: 0 !important;
+  }
+
+  /* Спонсоры на личном деле не показываем */
+  body.kv-page-user #DivRightDesign .kv-panel--season,
+  body.kv-page-user #DivRightDesign .kv-sponsors-grid,
+  body.kv-page-user #kvSponsorsCenter {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* «Связь» — на всю ширину колонки */
+  body.kv-page-user #DivRightDesign {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  body.kv-page-user #DivRightDesign > .kv-panel:first-child {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-user #DivRightDesign > .kv-panel:first-child .kv-panel-title,
+  body.kv-page-user #DivRightDesign > .kv-panel:first-child .kv-social-list,
+  body.kv-page-user #DivRightDesign > .kv-panel:first-child .kv-link-list {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-user #DivRightDesign > .kv-panel:first-child .kv-social-list a {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-user #DivRightDesign > .kv-panel:first-child .kv-link-list {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 6px 12px !important;
+  }
+
+  body.kv-page-user #DivRightDesign > .kv-panel:first-child .kv-link-list a {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Шапка профиля: фото сверху, текст снизу (как на kovrov.en.cx) */
+  body.kv-page-user #tdContentCenter > table[width="100%"] > tbody > tr > td > table[width="100%"]:first-of-type > tbody > tr {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  body.kv-page-user #tdContentCenter .pnGr2 > table > tbody > tr > td[width="226"],
+  body.kv-page-user #tdContentCenter .pnGr2 > table > tbody > tr > td:first-child {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    text-align: center !important;
+    white-space: normal !important;
+  }
+
+  body.kv-page-user #tdContentCenter .pnGr2 > table > tbody > tr > td:first-child img {
+    max-width: min(100%, 240px) !important;
+    width: auto !important;
+    height: auto !important;
+  }
+
+  body.kv-page-user #tdContentCenter .pnGr2 > table > tbody > tr > td[style*="padding-left"],
+  body.kv-page-user #tdContentCenter .pnGr2 > table > tbody > tr > td[nowrap]:last-child {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    white-space: normal !important;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-user #tdContentCenter .pnGr2 td[nowrap] {
+    white-space: normal !important;
+  }
+
+  body.kv-page-user #tdContentCenter .pnGr2 table[width="100%"] td {
+    text-align: left !important;
+    white-space: normal !important;
+    word-break: normal !important;
+  }
+
+  /* Вкладки личного дела */
+  body.kv-page-user #tdContentCenter table.w100per,
+  body.kv-page-user #tdContentCenter table.w100per > tbody,
+  body.kv-page-user #tdContentCenter table.w100per > tbody > tr,
+  body.kv-page-user #tdContentCenter table.w100per > tbody > tr > td {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-user #tdContentCenter table.enTab,
+  body.kv-page-user #tdContentCenter table.tblList.enTab {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0 10px !important;
+  }
+
+  body.kv-page-user #tdContentCenter table.enTab tbody {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  body.kv-page-user #tdContentCenter table.enTab tr {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    width: 100% !important;
+  }
+
+  body.kv-page-user #tdContentCenter table.enTab td.tab {
+    display: block !important;
+    flex: 1 1 calc(50% - 6px) !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-user #tdContentCenter table.enTab td.tab a {
+    display: block !important;
+    text-align: center !important;
+    line-height: 1.25 !important;
+    white-space: normal !important;
+  }
+
+  body.kv-page-user #tdContentCenter table.enTab td.td_last {
+    flex: 1 1 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  body.kv-page-user #tdContentCenter table.enTab td.td_last .tab form,
+  body.kv-page-user #tdContentCenter table.enTab td.td_last .tab form table {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  body.kv-page-user #tdContentCenter table.enTab td.td_last select {
+    max-width: 100% !important;
+  }
+
+  /* Заголовки секций (Личные данные, Контакты…) */
+  body.kv-page-user #tdContentCenter .tabContent div[id*="divHeader"] table {
+    display: table !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    table-layout: auto !important;
+  }
+
+  body.kv-page-user #tdContentCenter .tabContent div[id*="divHeader"] .panel_line_bgcolor {
+    white-space: normal !important;
+  }
+
+  /* Поля блоков: подпись слева | значение справа */
+  body.kv-page-user #tdContentCenter .tabContent form#aspnetForm table[width="100%"][cellspacing="5px"],
+  body.kv-page-user #tdContentCenter .tabContent div[id*="divContent"] table[width="100%"][cellspacing="5px"] {
+    display: table !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    table-layout: fixed !important;
+    border-collapse: collapse !important;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-user #tdContentCenter .tabContent form#aspnetForm table[width="100%"][cellspacing="5px"] tbody,
+  body.kv-page-user #tdContentCenter .tabContent div[id*="divContent"] table[width="100%"][cellspacing="5px"] tbody {
+    display: table-row-group !important;
+  }
+
+  body.kv-page-user #tdContentCenter .tabContent form#aspnetForm table[width="100%"][cellspacing="5px"] tr,
+  body.kv-page-user #tdContentCenter .tabContent div[id*="divContent"] table[width="100%"][cellspacing="5px"] tr {
+    display: table-row !important;
+  }
+
+  body.kv-page-user #tdContentCenter .tabContent form#aspnetForm table[width="100%"][cellspacing="5px"] td,
+  body.kv-page-user #tdContentCenter .tabContent div[id*="divContent"] table[width="100%"][cellspacing="5px"] td {
+    display: table-cell !important;
+    vertical-align: top !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    padding: 4px 6px !important;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-user #tdContentCenter .tabContent form#aspnetForm table[width="100%"][cellspacing="5px"] td[align="right"],
+  body.kv-page-user #tdContentCenter .tabContent form#aspnetForm table[width="100%"][cellspacing="5px"] td[width="50%"][align="right"] {
+    width: 40% !important;
+    text-align: right !important;
+    padding-right: 8px !important;
+  }
+
+  body.kv-page-user #tdContentCenter .tabContent form#aspnetForm table[width="100%"][cellspacing="5px"] td[align="left"],
+  body.kv-page-user #tdContentCenter .tabContent form#aspnetForm table[width="100%"][cellspacing="5px"] td[width="50%"][align="left"],
+  body.kv-page-user #tdContentCenter .tabContent div[id*="divContent"] table[width="100%"][cellspacing="5px"] td[align="left"] {
+    width: 60% !important;
+    text-align: left !important;
+  }
+
+  body.kv-page-user #tdContentCenter .tabContent form#aspnetForm table[width="100%"][cellspacing="5px"] td[style*="text-align: right"],
+  body.kv-page-user #tdContentCenter .tabContent div[id*="divContent"] table[width="100%"][cellspacing="5px"] td[style*="text-align: right"] {
+    width: 40% !important;
+    text-align: right !important;
+    padding-right: 8px !important;
+  }
+
+  body.kv-page-user #tdContentCenter .tabContent form#aspnetForm table[width="100%"][cellspacing="5px"] td[style*="text-align: left"],
+  body.kv-page-user #tdContentCenter .tabContent div[id*="divContent"] table[width="100%"][cellspacing="5px"] td[style*="text-align: left"] {
+    width: 60% !important;
+    text-align: left !important;
+  }
+
+  body.kv-page-user #tdContentCenter .tabContent div[id*="divContent"] table[width="100%"][cellspacing="5px"] td[align="right"],
+  body.kv-page-user #tdContentCenter .tabContent div[id*="divContent"] table[width="100%"][cellspacing="5px"] td[width="50%"][align="right"] {
+    width: 40% !important;
+    text-align: right !important;
+    padding-right: 8px !important;
+  }
+
+  body.kv-page-user #tdContentCenter .tabContent form#aspnetForm table[width="100%"][cellspacing="5px"] td[colspan="2"],
+  body.kv-page-user #tdContentCenter .tabContent div[id*="divContent"] table[width="100%"][cellspacing="5px"] td[colspan="2"] {
+    display: table-cell !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  /* Транспорт — вложенная таблица по центру */
+  body.kv-page-user #tdContentCenter .tabContent div[id*="transportBlock"] table[width="100%"] {
+    table-layout: auto !important;
+  }
+
+  /* Подписка: убрать float, чтобы не обрезало */
+  body.kv-page-user #tdContentCenter .tabContent .fl {
+    float: none !important;
+    display: inline !important;
+  }
+
+  body.kv-page-user #tdContentCenter .tabContent .cb {
+    clear: both !important;
+  }
+
+  body.kv-page-user #tdContentCenter .tabCntHolder_alt,
+  body.kv-page-user #tdContentCenter .tabContent,
+  body.kv-page-user #tdContentCenter #content.tabContent {
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-inner #footerTable,
+  body.kv-page-inner #footerCenter,
+  body.kv-page-inner #DivBottomDesign {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-inner #footerCenter,
+  body.kv-page-inner #DivBottomDesign p {
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    padding: 0 8px !important;
+    font-size: 12px !important;
+    line-height: 1.45 !important;
+  }
+
+  body.kv-page-inner #trFooterContent {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  body.kv-page-inner #tdEn016 {
+    display: none !important;
+  }
+
+  /* ЛК на внутренних: не раздувать «Предстоящие игры» на мобиле */
+  body.kv-page-inner #boxComingGames,
+  body.kv-page-inner #boxAdvert,
+  body.kv-page-inner #boxRandomImage {
+    display: none !important;
+  }
+
+  /* ——— Моя почта (EnMail.aspx) — как на kovrov.en.cx, без grid/JS ——— */
+  body.kv-page-mail #tdContentRight {
+    display: none !important;
+  }
+
+  body.kv-page-mail #tdContentCenter {
+    padding: 8px 10px 16px !important;
+    overflow-x: hidden !important;
+    text-align: left !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-mail #tdContentCenter,
+  body.kv-page-mail #tdContentCenter * {
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-mail #tdContentCenter > table {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  body.kv-page-mail #tdContentCenter > table > tbody > tr > td.spacer,
+  body.kv-page-mail #tdContentCenter > table > tbody > tr > td:has(> .spacer:only-child),
+  body.kv-page-mail #tdContentCenter > table > tbody > tr > td:has(> div.spacer:only-child) {
+    display: none !important;
+    width: 0 !important;
+    max-width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+
+  body.kv-page-mail #tdContentCenter > table > tbody > tr > td:not(.spacer) {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: left !important;
+  }
+
+  body.kv-page-mail #tdContentCenter h1.PageTitle {
+    margin: 0 0 12px !important;
+    padding: 0 !important;
+    font-size: 1.35rem !important;
+    font-weight: 700 !important;
+    color: #cfff9f !important;
+    line-height: 1.25 !important;
+    text-align: left !important;
+  }
+
+  body.kv-page-mail #boxUser a.lm[href*="EnMail.aspx"] {
+    color: #cfff9f !important;
+    font-weight: 700 !important;
+  }
+
+  body.kv-page-mail #tdContentCenter table.menuTabs {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 0 8px !important;
+  }
+
+  body.kv-page-mail #tdContentCenter select {
+    max-width: min(100vw - 48px, 220px) !important;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-mail #tdContentCenter td.pages,
+  body.kv-page-mail #tdContentCenter .pages {
+    text-align: center !important;
+    padding: 10px 0 !important;
+  }
+
+  /* Иконки во вкладках / панели */
+  body.kv-page-mail #tdContentCenter table.menuTabs img,
+  body.kv-page-mail #tdContentCenter .subMenu img {
+    max-width: 22px !important;
+    max-height: 22px !important;
+    width: auto !important;
+    height: auto !important;
+    vertical-align: middle !important;
+  }
+
+  /*
+   * Строка переписки: table-layout:fixed — аватар 52px | текст | галка 30px.
+   * Только таблица-«лист» с чекбоксом (не обёртка, не menuTabs, не панель select).
+   */
+  body.kv-page-mail #tdContentCenter table:not(.menuTabs):not(:has(select)):has(tbody > tr td input[type="checkbox"]):not(:has(table input[type="checkbox"])) {
+    display: table !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    table-layout: fixed !important;
+    border-collapse: collapse !important;
+    margin: 0 !important;
+    border-bottom: 1px solid #2d3d2d !important;
+  }
+
+  body.kv-page-mail #tdContentCenter table:not(.menuTabs):not(:has(select)):has(tbody > tr td input[type="checkbox"]):not(:has(table input[type="checkbox"])) tbody {
+    display: table-row-group !important;
+  }
+
+  body.kv-page-mail #tdContentCenter table:not(.menuTabs):not(:has(select)):has(tbody > tr td input[type="checkbox"]):not(:has(table input[type="checkbox"])) tr {
+    display: table-row !important;
+  }
+
+  body.kv-page-mail #tdContentCenter table:not(.menuTabs):not(:has(select)):has(tbody > tr td input[type="checkbox"]):not(:has(table input[type="checkbox"])) td {
+    display: table-cell !important;
+    vertical-align: top !important;
+    text-align: left !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    line-height: 1.4 !important;
+    padding: 6px 4px !important;
+    overflow: hidden !important;
+    max-width: 100% !important;
+  }
+
+  body.kv-page-mail #tdContentCenter table:not(.menuTabs):not(:has(select)):has(tbody > tr td input[type="checkbox"]):not(:has(table input[type="checkbox"])) > tbody > tr > td:first-child {
+    width: 52px !important;
+    max-width: 52px !important;
+    min-width: 52px !important;
+    padding: 6px 6px 6px 0 !important;
+  }
+
+  body.kv-page-mail #tdContentCenter table:not(.menuTabs):not(:has(select)):has(tbody > tr td input[type="checkbox"]):not(:has(table input[type="checkbox"])) > tbody > tr > td:has(input[type="checkbox"]) {
+    width: 30px !important;
+    max-width: 30px !important;
+    min-width: 30px !important;
+    padding: 6px 0 6px 2px !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+  }
+
+  body.kv-page-mail #tdContentCenter table:not(.menuTabs):not(:has(select)):has(tbody > tr td input[type="checkbox"]):not(:has(table input[type="checkbox"])) > tbody > tr > td:first-child img {
+    width: 48px !important;
+    height: 48px !important;
+    max-width: 48px !important;
+    max-height: 48px !important;
+    display: block !important;
+    object-fit: cover !important;
+    border-radius: 4px !important;
+    margin: 0 !important;
+  }
+
+  body.kv-page-mail #tdContentCenter table:not(.menuTabs):not(:has(select)):has(tbody > tr td input[type="checkbox"]):not(:has(table input[type="checkbox"])) table img {
+    width: auto !important;
+    height: auto !important;
+    max-width: 20px !important;
+    max-height: 20px !important;
+    display: inline !important;
+    vertical-align: middle !important;
+  }
+
+  body.kv-page-mail #tdContentCenter table:not(.menuTabs):not(:has(select)):has(tbody > tr td input[type="checkbox"]):not(:has(table input[type="checkbox"])) table {
+    display: table !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    table-layout: auto !important;
+    border: none !important;
+    margin: 0 !important;
+  }
+
+  body.kv-page-mail #tdContentCenter table:not(.menuTabs):not(:has(select)):has(tbody > tr td input[type="checkbox"]):not(:has(table input[type="checkbox"])) table tr {
+    display: table-row !important;
+  }
+
+  body.kv-page-mail #tdContentCenter table:not(.menuTabs):not(:has(select)):has(tbody > tr td input[type="checkbox"]):not(:has(table input[type="checkbox"])) table td {
+    display: table-cell !important;
+    text-align: left !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    padding: 1px 4px 1px 0 !important;
+    width: auto !important;
+    max-width: 100% !important;
+  }
+
+  body.kv-page-mail #tdContentCenter table:not(.menuTabs):not(:has(select)):has(tbody > tr td input[type="checkbox"]):not(:has(table input[type="checkbox"])) input[type="checkbox"] {
+    width: 18px !important;
+    height: 18px !important;
+    margin: 0 auto !important;
+    display: block !important;
+    vertical-align: top !important;
+  }
+
+  /* ——— Мой баланс (UserBalance.aspx) ——— */
+  body.kv-page-balance #tdContentCenter,
+  body.kv-page-balance #tdContentCenter > table,
+  body.kv-page-balance #tdContentCenter > table > tbody > tr > td,
+  body.kv-page-balance #tdContentCenter > table > tbody > tr > td > table[width="100%"] {
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-balance #tdContentCenter > table[cellpadding] > tbody > tr > td {
+    padding: 6px 8px !important;
+  }
+
+  body.kv-page-balance #tdContentCenter h1.PageTitle {
+    margin: 0 0 10px !important;
+    font-size: 1.1rem !important;
+  }
+
+  /* W/N-счета + кнопка «Внутренний перевод» */
+  body.kv-page-balance #tdContentCenter .enPnl1.border_rad2 table.padT5 {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  body.kv-page-balance #tdContentCenter .enPnl1.border_rad2 table.padT5 tr {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 6px 10px !important;
+    width: 100% !important;
+  }
+
+  body.kv-page-balance #tdContentCenter .enPnl1.border_rad2 table.padT5 td {
+    display: block !important;
+    width: auto !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    white-space: normal !important;
+  }
+
+  body.kv-page-balance #tdContentCenter .enPnl1.border_rad2 table.padT5 img[src*="transfer"] {
+    width: auto !important;
+    max-width: min(100%, 140px) !important;
+    height: 20px !important;
+  }
+
+  /* Пополнение: Xsolla / ЮMoney (float + h3 в одной ячейке) */
+  body.kv-page-balance #tdContentCenter table.padT5.padL10.padR10 {
+    width: 100% !important;
+    max-width: 100% !important;
+    table-layout: fixed !important;
+  }
+
+  body.kv-page-balance #tdContentCenter table.padT5.padL10.padR10 td {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 6px 0 !important;
+    box-sizing: border-box !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  body.kv-page-balance #tdContentCenter table.padT5.padL10.padR10 td.h18[nowrap] {
+    white-space: normal !important;
+  }
+
+  body.kv-page-balance #tdContentCenter table.padT5.padL10.padR10 td[colspan="2"]:has(div[style*="float"]),
+  body.kv-page-balance #tdContentCenter table.padT5.padL10.padR10 td[colspan="2"]:has(a[target="_blank"] img) {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+
+  body.kv-page-balance #tdContentCenter table.padT5.padL10.padR10 td[colspan="2"] div[style*="float"] {
+    float: none !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    max-width: 88px !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    text-align: center !important;
+  }
+
+  body.kv-page-balance #tdContentCenter table.padT5.padL10.padR10 td[colspan="2"] h3 {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 12px !important;
+    font-weight: normal !important;
+    line-height: 1.45 !important;
+    color: #e8d070 !important;
+    white-space: normal !important;
+  }
+
+  body.kv-page-balance #tdContentCenter table.padT5.padL10.padR10 img[src*="xsolla" i] {
+    max-width: 80px !important;
+    width: auto !important;
+    height: auto !important;
+    max-height: 65px !important;
+    display: block !important;
+  }
+
+  body.kv-page-balance #tdContentCenter table.padT5.padL10.padR10 img[src*="yoomoney" i],
+  body.kv-page-balance #tdContentCenter table.padT5.padL10.padR10 img[src*="iomoney" i] {
+    max-width: min(100%, 200px) !important;
+    width: auto !important;
+    height: auto !important;
+    max-height: 52px !important;
+    display: block !important;
+  }
+
+  /* История: table[cellspacing="4"], разделители — tr с td.bg_light2 */
+  body.kv-page-balance #tdContentCenter table[cellspacing="4"][width="100%"] {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  body.kv-page-balance #tdContentCenter table[cellspacing="4"][width="100%"] tbody {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  body.kv-page-balance #tdContentCenter table[cellspacing="4"][width="100%"] tr:has(> td.bg_light2[colspan]) {
+    display: block !important;
+    height: 6px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  body.kv-page-balance #tdContentCenter table[cellspacing="4"][width="100%"] tr:has(> td.bg_light2[colspan]) td {
+    display: block !important;
+    height: 4px !important;
+    padding: 0 !important;
+    background: #2d3d2d !important;
+    border: none !important;
+  }
+
+  body.kv-page-balance #tdContentCenter table[cellspacing="4"][width="100%"] tr[valign="top"] {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 8px 0 !important;
+    border-bottom: 1px solid #2d3d2d !important;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-balance #tdContentCenter table[cellspacing="4"][width="100%"] tr[valign="top"] > td {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 2px 0 !important;
+    box-sizing: border-box !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+  }
+
+  body.kv-page-balance #tdContentCenter table[cellspacing="4"][width="100%"] tr[valign="top"] > td:has(> .spacer),
+  body.kv-page-balance #tdContentCenter table[cellspacing="4"][width="100%"] tr[valign="top"] > td:nth-child(1),
+  body.kv-page-balance #tdContentCenter table[cellspacing="4"][width="100%"] tr[valign="top"] > td:nth-child(3),
+  body.kv-page-balance #tdContentCenter table[cellspacing="4"][width="100%"] tr[valign="top"] > td:nth-child(5),
+  body.kv-page-balance #tdContentCenter table[cellspacing="4"][width="100%"] tr[valign="top"] > td:nth-child(7),
+  body.kv-page-balance #tdContentCenter table[cellspacing="4"][width="100%"] tr[valign="top"] > td:nth-child(9) {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+
+  body.kv-page-balance #tdContentCenter table[cellspacing="4"][width="100%"] tr[valign="top"] > td:nth-child(2),
+  body.kv-page-balance #tdContentCenter table[cellspacing="4"][width="100%"] tr[valign="top"] > td:nth-child(4) {
+    display: inline-block !important;
+    width: auto !important;
+    max-width: 45% !important;
+    vertical-align: baseline !important;
+    padding-right: 10px !important;
+  }
+
+  body.kv-page-balance #tdContentCenter table[cellspacing="4"][width="100%"] tr[valign="top"] > td:nth-child(6) {
+    display: block !important;
+    width: 100% !important;
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+    padding: 4px 0 !important;
+  }
+
+  body.kv-page-balance #tdContentCenter table[cellspacing="4"][width="100%"] tr[valign="top"] > td:nth-child(8) {
+    display: block !important;
+    width: 100% !important;
+    text-align: right !important;
+    font-size: 11px !important;
+    padding-top: 2px !important;
+    white-space: normal !important;
+    word-break: break-all !important;
+  }
+
+  /* ——— Топик форума (Messages.aspx), мобила ——— */
+  body.kv-page-gb-topic #tdContentCenter .gbUserInfo > div[style*="float: right"],
+  body.kv-page-gb-topic #tdContentCenter .gbUserInfo > div[style*="float:right"] {
+    max-width: 42% !important;
+  }
+
+  /* Форма ответа — на всю ширину (EN: textarea { width: 300px }) */
+  body.kv-page-gb-topic #tdContentCenter form[name="formGBNewMessage"] {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    margin: 12px 0 !important;
+    padding: 0 !important;
+  }
+
+  body.kv-page-gb-topic #tdContentCenter form[name="formGBNewMessage"] table,
+  body.kv-page-gb-topic #tdContentCenter form[name="formGBNewMessage"] tbody,
+  body.kv-page-gb-topic #tdContentCenter form[name="formGBNewMessage"] tr,
+  body.kv-page-gb-topic #tdContentCenter form[name="formGBNewMessage"] td,
+  body.kv-page-gb-topic #tdContentCenter form[name="formGBNewMessage"] .tblTextArea,
+  body.kv-page-gb-topic #tdContentCenter form[name="formGBNewMessage"] .tblTextArea table,
+  body.kv-page-gb-topic #tdContentCenter form[name="formGBNewMessage"] .tblTextArea tbody,
+  body.kv-page-gb-topic #tdContentCenter form[name="formGBNewMessage"] .tblTextArea tr,
+  body.kv-page-gb-topic #tdContentCenter form[name="formGBNewMessage"] .tblTextArea td {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-gb-topic #tdContentCenter form[name="formGBNewMessage"] textarea,
+  body.kv-page-gb-topic #tdContentCenter form[name="formGBNewMessage"] .tblTextArea textarea {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 120px !important;
+    box-sizing: border-box !important;
+    margin: 0 0 10px !important;
+    padding: 8px 10px !important;
+  }
+
+  body.kv-page-gb-topic #tdContentCenter form[name="formGBNewMessage"] input[type="text"],
+  body.kv-page-gb-topic #tdContentCenter form[name="formGBNewMessage"] select {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  body.kv-page-gb-topic #tdContentCenter form[name="formGBNewMessage"] input[type="submit"],
+  body.kv-page-gb-topic #tdContentCenter form[name="formGBNewMessage"] input[type="button"],
+  body.kv-page-gb-topic #tdContentCenter form[name="formGBNewMessage"] input[type="image"],
+  body.kv-page-gb-topic #tdContentCenter form[name="formGBNewMessage"] button {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 8px 8px 0 !important;
+  }
+}
+
+/* ——— Топик форума Guestbook/Messages.aspx (все ширины) ——— */
+body.kv-page-gb-topic #tdContentCenter td.msgHead {
+  text-align: left !important;
+  vertical-align: top !important;
+  height: auto !important;
+  width: 100% !important;
+}
+
+body.kv-page-gb-topic #tdContentCenter .gbUserInfo {
+  height: auto !important;
+  min-height: 0 !important;
+  width: 100% !important;
+  overflow: hidden !important;
+  padding-bottom: 6px !important;
+  box-sizing: border-box !important;
+  text-align: left !important;
+}
+
+body.kv-page-gb-topic #tdContentCenter .gbUserInfo::after {
+  content: "" !important;
+  display: table !important;
+  clear: both !important;
+}
+
+body.kv-page-gb-topic #tdContentCenter .gbMessage {
+  display: block !important;
+  clear: both !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  text-align: left !important;
+  padding-top: 8px !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+
+body.kv-page-gb-topic #tdContentCenter .gbMessage > div[id^="msgText"],
+body.kv-page-gb-topic #tdContentCenter .gbMessage [id^="msgText_"] {
+  display: block !important;
+  clear: both !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  text-align: left !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.45 !important;
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  overflow-wrap: anywhere !important;
+}
+
+body.kv-page-gb-topic #tdContentCenter .gbMessage .quoteText {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  text-align: left !important;
+  margin: 0 0 8px !important;
+  box-sizing: border-box !important;
+}
+
+body.kv-page-gb-topic #tdContentCenter .msgHead .gbMessage a {
+  display: inline !important;
+  word-break: break-word !important;
+  overflow-wrap: anywhere !important;
+}
+
+/* Мой баланс — десктоп: логотипы оплаты в строку с текстом */
+@media (min-width: 769px) {
+  body.kv-page-balance #tdContentCenter .enPnl1.border_rad2 table.padT5 tr {
+    display: table-row !important;
+  }
+
+  body.kv-page-balance #tdContentCenter .enPnl1.border_rad2 table.padT5 td {
+    display: table-cell !important;
+    white-space: nowrap !important;
+  }
+
+  body.kv-page-balance #tdContentCenter table.padT5.padL10.padR10 {
+    display: table !important;
+    table-layout: auto !important;
+  }
+
+  body.kv-page-balance #tdContentCenter table.padT5.padL10.padR10 tr {
+    display: table-row !important;
+  }
+
+  body.kv-page-balance #tdContentCenter table.padT5.padL10.padR10 td {
+    display: table-cell !important;
+    width: auto !important;
+    max-width: none !important;
+    vertical-align: top !important;
+    padding: 6px 8px !important;
+  }
+
+  body.kv-page-balance #tdContentCenter table.padT5.padL10.padR10 td[colspan="2"] {
+    overflow: hidden !important;
+    width: 100% !important;
+  }
+
+  body.kv-page-balance #tdContentCenter table.padT5.padL10.padR10 td[colspan="2"]::after {
+    content: "" !important;
+    display: table !important;
+    clear: both !important;
+  }
+
+  body.kv-page-balance #tdContentCenter table.padT5.padL10.padR10 td[colspan="2"] div[style*="float"] {
+    float: left !important;
+    width: auto !important;
+    max-width: 100px !important;
+    height: auto !important;
+    margin: 0 14px 6px 0 !important;
+  }
+
+  body.kv-page-balance #tdContentCenter table.padT5.padL10.padR10 td[colspan="2"] h3 {
+    display: block !important;
+    overflow: hidden !important;
+    margin: 0 0 0 114px !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+  }
+
+  body.kv-page-balance #tdContentCenter table.padT5.padL10.padR10 td[colspan="2"] > a[target="_blank"] {
+    float: left !important;
+    margin: 0 14px 6px 0 !important;
+  }
+
+  body.kv-page-balance #tdContentCenter table.padT5.padL10.padR10 td[colspan="2"] > a[target="_blank"] + h3 {
+    margin-left: 0 !important;
+    overflow: visible !important;
+  }
+
+  body.kv-page-balance #tdContentCenter table.padT5.padL10.padR10 img[src*="xsolla" i] {
+    max-width: 90px !important;
+    height: auto !important;
+  }
+
+  body.kv-page-balance #tdContentCenter table.padT5.padL10.padR10 img[src*="yoomoney" i],
+  body.kv-page-balance #tdContentCenter table.padT5.padL10.padR10 img[src*="iomoney" i] {
+    max-width: 220px !important;
+    max-height: 56px !important;
+    height: auto !important;
+  }
+
+  body.kv-page-balance #tdContentCenter table[cellspacing="4"][width="100%"] {
+    display: table !important;
+    table-layout: auto !important;
+    width: 100% !important;
+  }
+
+  body.kv-page-balance #tdContentCenter table[cellspacing="4"][width="100%"] tr[valign="top"] {
+    display: table-row !important;
+  }
+
+  body.kv-page-balance #tdContentCenter table[cellspacing="4"][width="100%"] tr[valign="top"] > td {
+    display: table-cell !important;
+    width: revert !important;
+    max-width: none !important;
+    border-bottom: none !important;
+    padding: revert !important;
+  }
+
+  body.kv-page-balance #tdContentCenter table[cellspacing="4"][width="100%"] tr[valign="top"] > td:has(> .spacer),
+  body.kv-page-balance #tdContentCenter table[cellspacing="4"][width="100%"] tr[valign="top"] > td:nth-child(1),
+  body.kv-page-balance #tdContentCenter table[cellspacing="4"][width="100%"] tr[valign="top"] > td:nth-child(3),
+  body.kv-page-balance #tdContentCenter table[cellspacing="4"][width="100%"] tr[valign="top"] > td:nth-child(5),
+  body.kv-page-balance #tdContentCenter table[cellspacing="4"][width="100%"] tr[valign="top"] > td:nth-child(7),
+  body.kv-page-balance #tdContentCenter table[cellspacing="4"][width="100%"] tr[valign="top"] > td:nth-child(9) {
+    display: table-cell !important;
+    width: 4px !important;
+    max-width: 8px !important;
+    padding: 0 !important;
+  }
+
+  body.kv-page-balance #tdContentCenter table[cellspacing="4"][width="100%"] tr[valign="top"] > td:nth-child(6) {
+    width: 100% !important;
+    word-break: break-word !important;
+  }
+
+  body.kv-page-balance #tdContentCenter table[cellspacing="4"][width="100%"] tr[valign="top"] > td:nth-child(8) {
+    white-space: nowrap !important;
+    text-align: right !important;
+    word-break: normal !important;
+  }
+}
+
+/* Личное дело: спонсоры не выводим (все ширины экрана) */
+body.kv-page-user #DivRightDesign .kv-panel--season,
+body.kv-page-user #DivRightDesign .kv-sponsors-grid,
+body.kv-page-user #kvSponsorsCenter,
+body.kv-page-user #kvSponsorsCenter .kv-panel--season {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Послужной список (команда + личное дело): «Загрузка…» — все ширины экрана */
+body.kv-page-team #tdContentCenter .tabContent table.bg_light2 tr.kv-sr-placeholder,
+body.kv-page-user #tdContentCenter .tabContent table.bg_light2 tr.kv-sr-placeholder,
+body.kv-page-team #tdContentCenter .tabContent table.bg_light2 tr.kv-sr-loading-row,
+body.kv-page-user #tdContentCenter .tabContent table.bg_light2 tr.kv-sr-loading-row,
+body.kv-page-team #tdContentCenter .tabContent table.bg_light2 tr.kv-sr-detail:not(.kv-sr-open),
+body.kv-page-user #tdContentCenter .tabContent table.bg_light2 tr.kv-sr-detail:not(.kv-sr-open) {
+  display: none !important;
+}
+
+body.kv-page-team #tdContentCenter .tabContent table.bg_light2 tr.kv-sr-open,
+body.kv-page-user #tdContentCenter .tabContent table.bg_light2 tr.kv-sr-open {
+  display: table-row !important;
+}
+
+body.kv-page-team #tdContentCenter .tabContent table.bg_light2 td.kv-sr-loading-cell,
+body.kv-page-user #tdContentCenter .tabContent table.bg_light2 td.kv-sr-loading-cell {
+  display: none !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  color: transparent !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}

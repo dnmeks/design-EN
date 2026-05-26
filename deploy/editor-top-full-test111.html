@@ -1,0 +1,701 @@
+<!-- ПОЛНЫЙ дизайн для kovrov-test111.en.cx — вкладка «Верхняя часть», режим HTML код -->
+
+<script type="text/javascript">
+(function () {
+  var root = document.documentElement;
+  root.className += " kv-html-theme";
+  function applyView() {
+    var mobile = window.matchMedia && window.matchMedia("(max-width: 768px)").matches;
+    if (mobile) {
+      root.className += " kv-view-mobile";
+    } else {
+      root.className = root.className.replace(/\bkv-view-mobile\b/g, "");
+    }
+  }
+  function markInnerPage() {
+    if (!document.body) return;
+    var path = (location.pathname || "").toLowerCase();
+    var isHome =
+      path === "/" ||
+      path === "/default.aspx" ||
+      path.indexOf("/home.aspx") >= 0;
+    if (!isHome) {
+      document.body.className += " kv-page-inner";
+    }
+    if (path.indexOf("/teams/teamdetails") >= 0) {
+      document.body.className += " kv-page-team";
+    }
+    if (path.indexOf("userdetails") >= 0) {
+      document.body.className += " kv-page-user";
+    }
+    if (path.indexOf("userbalance") >= 0) {
+      document.body.className += " kv-page-balance";
+    }
+    if (path.indexOf("enmail") >= 0) {
+      document.body.className += " kv-page-mail";
+    }
+    if (path.indexOf("guestbook.aspx") >= 0) {
+      document.body.className += " kv-page-guestbook";
+    }
+    if (path.indexOf("/guestbook/messages") >= 0) {
+      document.body.className += " kv-page-gb-topic";
+    }
+  }
+
+  function onReady() {
+    if (document.body) {
+      document.body.className += " kv-full-theme";
+      markInnerPage();
+    }
+    applyView();
+  }
+  applyView();
+  if (window.matchMedia) {
+    var mq = window.matchMedia("(max-width: 768px)");
+    if (mq.addListener) mq.addListener(applyView);
+    else if (mq.addEventListener) mq.addEventListener("change", applyView);
+  }
+  if (document.body) onReady();
+  else document.addEventListener("DOMContentLoaded", onReady);
+})();
+</script>
+
+<link href="https://d1.endata.cx/images/personal/83308/adaptive_kvrv.css" rel="stylesheet" type="text/css" />
+<link href="https://d1.endata.cx/images/personal/144762/kovrov_css.css" rel="stylesheet" type="text/css" />
+<link href="https://d1.endata.cx/images/personal/144762/kovrov-games-hub.css" rel="stylesheet" type="text/css" />
+<link href="https://d1.endata.cx/images/personal/144762/kovrov-global.css" rel="stylesheet" type="text/css" />
+<link href="https://d1.endata.cx/images/personal/144762/kovrov-mobile.css" rel="stylesheet" type="text/css" />
+<link href="https://d1.endata.cx/images/personal/144762/kovrov-responsive.css" rel="stylesheet" type="text/css" />
+<link href="https://d1.endata.cx/images/personal/144762/kovrov-inner-pages.css" rel="stylesheet" type="text/css" />
+<style type="text/css"><!--
+body.kv-page-team #tdContentCenter .tabContent table.bg_light2 tr.kv-sr-placeholder,
+body.kv-page-user #tdContentCenter .tabContent table.bg_light2 tr.kv-sr-placeholder,
+body.kv-page-team #tdContentCenter .tabContent table.bg_light2 tr.kv-sr-loading-row,
+body.kv-page-user #tdContentCenter .tabContent table.bg_light2 tr.kv-sr-loading-row,
+body.kv-page-team #tdContentCenter .tabContent table.bg_light2 tr.kv-sr-detail:not(.kv-sr-open),
+body.kv-page-user #tdContentCenter .tabContent table.bg_light2 tr.kv-sr-detail:not(.kv-sr-open) {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+  line-height: 0 !important;
+  font-size: 0 !important;
+}
+body.kv-page-team #tdContentCenter .tabContent table.bg_light2 td.kv-sr-loading-cell,
+body.kv-page-user #tdContentCenter .tabContent table.bg_light2 td.kv-sr-loading-cell {
+  display: none !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  color: transparent !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+--></style>
+
+<div id="dnk_head">
+  <div class="back" style="background-position: 20% 0; background-repeat: no-repeat; background-size: cover;"></div>
+  <div class="kv-head-bar">
+    <div class="kv-head-left">
+      <div class="kv-head-brand">
+        <div class="star">
+          <div class="front" style="width: 0;"><img src="https://d1.endata.cx/images/personal/118263/dnk_stars.png" alt="" /></div>
+          <div class="clear" style="width: 0;"></div>
+        </div>
+        <div class="logo"><a style="color: #cfff9f;" href="/"><img src="https://d1.endata.cx/images/personal/83308/dnk_logo3.png" alt="Encounter Ковров" /></a></div>
+      </div>
+    </div>
+    <div class="menu-wrap kv-head-burger" id="kvMenuFallback" aria-label="Меню">
+      <input class="toggler" type="checkbox" id="kvMenuToggler" />
+      <label class="kv-burger-btn" for="kvMenuToggler" aria-label="Открыть меню"></label>
+      <div class="hamburger-menu">
+        <div>
+          <div>
+            <ul>
+              <li><a href="/Default.aspx">Главная</a></li>
+              <li><a href="/SiteMap.aspx?mnid=Games">Игры</a></li>
+              <li><a href="/SiteMap.aspx?mnid=network">Сеть</a></li>
+              <li><a href="/SiteMap.aspx?mnid=Media">Медиа</a></li>
+              <li><a href="/SiteMap.aspx?mnid=Contacts">Связь</a></li>
+              <li><a href="/GuestBook.aspx">Форум</a></li>
+              <li><a href="/Games.aspx">Прошедшие игры</a></li>
+              <li><a href="/GameCalendar.aspx">Календарь игр</a></li>
+              <li><a href="/Faq.aspx">Вопросы и ответы</a></li>
+              <li><a href="/PlayerSearch.aspx">Поиск</a></li>
+              <li><a href="/DomainAdministration.aspx">Контакты</a></li>
+              <li><a href="https://vk.com/kovrov_en_cx">ВК</a></li>
+              <li><a href="https://t.me/enkovrov">TG-канал</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Критичные стили шапки на мобиле (поверх kovrov_css и adaptive)
+     ═══ ЗАФИКСИРОВАНО (май 2026): лого слева, бургер справа, низ лого = бургер.
+     Звёзды — absolute поверх верха логотипа. Позицию лого/бургера не менять. ═══ -->
+<style type="text/css">
+@media (max-width: 768px) {
+  #dnk_head {
+    display: block !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #000 !important;
+    overflow: visible !important;
+    position: relative !important;
+    text-align: left !important;
+  }
+
+  #dnk_head .back {
+    display: none !important;
+  }
+
+  #dnk_head .kv-head-bar {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-end !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 8px 10px 10px !important;
+    position: relative !important;
+    z-index: 20 !important;
+    min-height: 0 !important;
+  }
+
+  /* Слева: звёзды поверх логотипа; низ лого — в одну линию с бургером */
+  #dnk_head .kv-head-left {
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: flex-start !important;
+    -webkit-box-pack: start !important;
+    position: relative !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    max-width: calc(100% - 52px) !important;
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    align-self: stretch !important;
+  }
+
+  #dnk_head .kv-head-left .logo,
+  #dnk_head .logo {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    float: none !important;
+    text-align: left !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+  }
+
+  #dnk_head .kv-head-brand {
+    display: block !important;
+    position: relative !important;
+    width: auto !important;
+    max-width: 100% !important;
+    line-height: 0 !important;
+    margin: 0 !important;
+    margin-right: auto !important;
+    padding: 0 !important;
+    text-align: left !important;
+    align-self: flex-start !important;
+    flex: 0 1 auto !important;
+  }
+
+  #dnk_head .kv-head-brand .logo {
+    position: relative !important;
+    top: auto !important;
+    left: 0 !important;
+    right: auto !important;
+    bottom: auto !important;
+    float: none !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+  }
+
+  #dnk_head .kv-head-brand .star {
+    position: absolute !important;
+    top: 20px !important;
+    left: 31px !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    z-index: 3 !important;
+    width: 140px !important;
+    height: 20px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: url(https://d1.endata.cx/images/personal/83308/kovrov_dnk_stars_2.png) top left no-repeat !important;
+    overflow: hidden !important;
+    pointer-events: auto !important;
+  }
+
+  #dnk_head .kv-head-brand .star .front,
+  #dnk_head .kv-head-brand .star .clear {
+    float: left !important;
+    height: 20px !important;
+    overflow: hidden !important;
+  }
+
+  #dnk_head .kv-head-brand .star .front img {
+    display: block !important;
+    height: 20px !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+
+  #dnk_head .kv-head-brand .logo {
+    z-index: 1 !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: min(100%, 220px) !important;
+    line-height: 0 !important;
+  }
+
+  #dnk_head .kv-head-brand .logo a {
+    display: block !important;
+    line-height: 0 !important;
+  }
+
+  #dnk_head .kv-head-brand .logo img {
+    display: block !important;
+    max-width: min(100%, 220px) !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    vertical-align: top !important;
+  }
+
+  #dnk_head #kvMenuFallback,
+  #dnk_head .menu-wrap.kv-head-burger {
+    display: block !important;
+    visibility: visible !important;
+    position: relative !important;
+    flex: 0 0 44px !important;
+    width: 44px !important;
+    height: 44px !important;
+    margin: 0 !important;
+    top: auto !important;
+    right: auto !important;
+    z-index: 100050 !important;
+    overflow: visible !important;
+  }
+
+  #dnk_head .menu-wrap .hamburger {
+    display: none !important;
+  }
+
+  #dnk_head .kv-burger-btn {
+    font-size: 0 !important;
+    line-height: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 5px !important;
+    width: 44px !important;
+    height: 44px !important;
+    margin: 0 !important;
+    padding: 10px 8px !important;
+    box-sizing: border-box !important;
+    cursor: pointer !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.35) !important;
+    border-radius: 6px !important;
+    position: relative !important;
+    z-index: 100051 !important;
+  }
+
+  #dnk_head .kv-burger-btn::before {
+    content: "" !important;
+    display: block !important;
+    width: 22px !important;
+    height: 3px !important;
+    background: #fff !important;
+    border-radius: 1px !important;
+    box-shadow: 0 -8px 0 #fff, 0 8px 0 #fff !important;
+  }
+
+  #dnk_head .kv-burger-btn span { display: none !important; }
+
+  #dnk_head .menu-wrap .toggler {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    opacity: 0 !important;
+    z-index: 100052 !important;
+    cursor: pointer !important;
+  }
+
+  #dnk_head .menu-wrap .toggler:checked ~ .hamburger-menu {
+    visibility: visible !important;
+  }
+
+  #dnk_head .menu-wrap .hamburger-menu {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 100040 !important;
+    visibility: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(0, 0, 0, 0.55) !important;
+  }
+
+  #dnk_head .menu-wrap .hamburger-menu > div {
+    background: rgba(45, 45, 45, 0.96) !important;
+    width: 100% !important;
+    min-height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  #dnk_head .menu-wrap .hamburger-menu a {
+    color: #fff !important;
+    text-decoration: none !important;
+    font-size: 1.15rem !important;
+  }
+
+  #dnk_head .menu-wrap .hamburger-menu li {
+    padding: 0.5rem !important;
+    list-style: none !important;
+  }
+
+  #dnk_head .menu-wrap .hamburger-menu ul {
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: center !important;
+  }
+
+  table.menuWrap,
+  .menuWrap {
+    display: none !important;
+  }
+
+  /* Старый бургер EN сразу после шапки — скрыть, если есть новый */
+  #dnk_head:has(#kvMenuFallback) + .menu-wrap {
+    display: none !important;
+  }
+
+  /* Если в шапке нет бургера — показать старый блок EN */
+  #dnk_head:not(:has(.menu-wrap)) + .menu-wrap {
+    display: block !important;
+    position: fixed !important;
+    top: 8px !important;
+    right: 8px !important;
+    z-index: 100050 !important;
+    width: 56px !important;
+    height: 56px !important;
+  }
+
+  /* Поверх adaptive_kvrv: не центрировать лого/звёзды */
+  html.kv-view-mobile #dnk_head .logo,
+  html.kv-html-theme #dnk_head .logo,
+  html.kv-view-mobile #dnk_head .kv-head-brand .logo,
+  html.kv-html-theme #dnk_head .kv-head-brand .logo {
+    position: relative !important;
+    left: 0 !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    float: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: left !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    flex: none !important;
+  }
+
+  html.kv-view-mobile #dnk_head .kv-head-brand .star,
+  html.kv-html-theme #dnk_head .kv-head-brand .star {
+    position: absolute !important;
+    top: 20px !important;
+    left: 31px !important;
+    transform: none !important;
+    margin: 0 !important;
+  }
+}
+</style>
+
+<link rel="stylesheet" type="text/css" href="https://d1.endata.cx/images/personal/144762/new_online_style3.css" />
+<script type="text/javascript">LinkEndColor = "00FFFF";</script>
+<script type="text/javascript" src="https://d1.endata.cx/images/personal/1397174/Online_color.js"></script>
+<script type="text/javascript" src="https://d1.endata.cx/images/personal/125812/dnk_hscript.js"></script>
+
+<script type="text/javascript">
+jQuery(function ($) {
+  $("#tdLogo").hide();
+  $("body").addClass("kv-full-theme");
+  $("html").addClass("kv-html-theme");
+  (function () {
+    var path = (location.pathname || "").toLowerCase();
+    var isHome =
+      path === "/" ||
+      path === "/default.aspx" ||
+      path.indexOf("/home.aspx") >= 0;
+    if (!isHome) {
+      $("body").addClass("kv-page-inner");
+    }
+    if (path.indexOf("/teams/teamdetails") >= 0) {
+      $("body").addClass("kv-page-team");
+    }
+    if (path.indexOf("userdetails") >= 0) {
+      $("body").addClass("kv-page-user");
+    }
+    if (path.indexOf("userbalance") >= 0) {
+      $("body").addClass("kv-page-balance");
+    }
+    if (path.indexOf("enmail") >= 0) {
+      $("body").addClass("kv-page-mail");
+    }
+  })();
+
+  function initKvStars() {
+    var src = $("img[src*=en_logo]:eq(0)").attr("src");
+    if (!src) {
+      return;
+    }
+    var m = src.match(/en_logo(\d+)/);
+    if (!m) {
+      return;
+    }
+    var w = parseInt(m[1], 10) * 20;
+    var $divs = $("#dnk_head .star div");
+    if (!$divs.length) {
+      return;
+    }
+    $divs.stop(true).css("width", 0);
+    $divs.animate({ width: w + "px" }, 1250);
+  }
+
+  function markGameInfoRows() {
+    var $gi = $("#tdContentCenter table.gameInfo").first();
+    if (!$gi.length) {
+      return;
+    }
+    $gi.find("> tbody > tr").each(function () {
+      var $tr = $(this);
+      var $td = $tr.children("td").first();
+      if (!$td.length) {
+        return;
+      }
+      $tr.removeClass(
+        "kv-game-row-end kv-game-row-timer kv-game-row-fee kv-game-row-prize"
+      );
+      if ($td.find('a[href*="MakeGameFee.aspx"]').length) {
+        $tr.addClass("kv-game-row-fee");
+        return;
+      }
+      if ($td.find("#GameDetail_lblPrizeCurrency").length) {
+        $tr.addClass("kv-game-row-prize");
+        return;
+      }
+      if ($td.find('[id^="TimerText"]').length) {
+        $tr.addClass("kv-game-row-timer");
+        return;
+      }
+      var titleText = ($td.find(".title").first().text() || "").toLowerCase();
+      if (titleText.indexOf("окончан") >= 0) {
+        $tr.addClass("kv-game-row-end");
+      }
+    });
+  }
+
+  function layoutGameFeeRow() {
+    $("#tdContentCenter table.gameInfo > tbody > tr.kv-game-row-fee > td").each(
+      function () {
+        var $td = $(this);
+        if ($td.children(".kv-fee-row").length) {
+          return;
+        }
+        var $wrap = $('<div class="kv-fee-row"></div>');
+        $td.contents().appendTo($wrap);
+        $td.append($wrap);
+      }
+    );
+  }
+
+  function setupConfirmFeeButtons() {
+    $('a[href*="MakeGameFee.aspx"]').each(function () {
+      var $a = $(this);
+      $a.addClass("kv-btn-confirm-fee");
+      if (!$a.attr("title")) {
+        $a.attr("title", "подтвердить участие");
+      }
+    });
+    markGameInfoRows();
+    layoutGameFeeRow();
+  }
+
+  function setupGuestLoginBox() {
+    var $box = $("#boxUser");
+    if (!$box.length) {
+      return;
+    }
+    var $login = $box.find('a[href*="/Login.aspx"]').filter(function () {
+      return String($(this).attr("href") || "").indexOf("logout") === -1;
+    }).first();
+    if (!$login.length) {
+      $box.removeClass("kv-box-guest");
+      return;
+    }
+    $box.addClass("kv-box-guest");
+    $login.closest("table").addClass("kv-guest-login-table");
+  }
+
+  /* DOM: .kv-head-brand > .star + .logo (звёзды в разметке перед лого, в CSS — overlay на лого).
+     Позицию лого/бургера не менять; звёзды только absolute внутри .kv-head-brand. */
+  function setupMobileHeader() {
+    var mobile = window.matchMedia && window.matchMedia("(max-width: 768px)").matches;
+    var $head = $("#dnk_head");
+    if (!$head.length) {
+      return;
+    }
+
+    var $burger = $("#kvMenuFallback");
+    if (!$burger.length) {
+      $burger = $head.find(".menu-wrap").first();
+    }
+    if (!$burger.length) {
+      $burger = $head.next(".menu-wrap");
+    }
+    if (!$burger.length) {
+      $burger = $("#DivTopDesign .menu-wrap").first();
+    }
+
+    if ($burger.length && !$burger.attr("id")) {
+      $burger.attr("id", "kvMenuFallback");
+    }
+
+    var $bar = $head.find(".kv-head-bar");
+    if (!$bar.length) {
+      $bar = $('<div class="kv-head-bar"></div>');
+      $head.append($bar);
+    }
+    $bar = $head.find(".kv-head-bar");
+
+    var $left = $bar.find(".kv-head-left");
+    if (!$left.length) {
+      $left = $('<div class="kv-head-left"></div>');
+      $bar.prepend($left);
+    }
+
+    var $brand = $left.find(".kv-head-brand").first();
+    if (!$brand.length) {
+      $brand = $(document.createElement("div")).addClass("kv-head-brand");
+      $left.append($brand);
+    }
+
+    var $star = $head.find(".star").first();
+    var $logo = $head.find(".logo").first();
+    if ($logo.length && !$logo.closest(".kv-head-brand").length) {
+      $logo.appendTo($brand);
+    }
+    if ($star.length && !$star.closest(".kv-head-brand").length) {
+      $star.prependTo($brand);
+    }
+    $star = $brand.find(".star").first();
+    $logo = $brand.find(".logo").first();
+    /* Звёзды строго над логотипом */
+    if ($star.length && $logo.length && $star.index() > $logo.index()) {
+      $star.insertBefore($logo);
+    }
+
+    $left.find(".star .front, .star .clear").each(function () {
+      if (!$(this).attr("style") || $(this).attr("style").indexOf("width") < 0) {
+        $(this).css("width", 0);
+      }
+    });
+
+    if (mobile && $burger.length) {
+      if (!$burger.closest("#dnk_head").length) {
+        $burger.appendTo($bar);
+      }
+      if (!$burger.find(".kv-burger-btn").length) {
+        $burger.find(".hamburger").hide();
+        if (!$burger.find(".toggler").length) {
+          $burger.prepend('<input class="toggler" type="checkbox" id="kvMenuToggler" />');
+        }
+        $burger.find(".toggler").first().after(
+          '<label class="kv-burger-btn" for="kvMenuToggler" aria-label="Открыть меню"></label>'
+        );
+      }
+      if (!$burger.find(".toggler").length) {
+        $burger.prepend('<input class="toggler" type="checkbox" id="kvMenuToggler" />');
+      } else {
+        $burger.find(".toggler").attr("id", "kvMenuToggler");
+      }
+      $burger.find(".kv-burger-btn").attr("for", "kvMenuToggler");
+      $burger.css({ display: "block", visibility: "visible", opacity: 1 });
+      $head.next(".menu-wrap").not($burger).hide();
+    }
+  }
+
+  setupConfirmFeeButtons();
+  setupGuestLoginBox();
+  setupMobileHeader();
+  initKvStars();
+  setTimeout(function () {
+    setupConfirmFeeButtons();
+    setupGuestLoginBox();
+    setupMobileHeader();
+    initKvStars();
+  }, 200);
+  setTimeout(function () {
+    setupConfirmFeeButtons();
+    setupGuestLoginBox();
+    setupMobileHeader();
+    initKvStars();
+  }, 900);
+  $(window).bind("resize.kvhead load.kvhead", function () {
+    setupConfirmFeeButtons();
+    setupGuestLoginBox();
+    setupMobileHeader();
+    initKvStars();
+  });
+
+  function centerDomainMenu() {
+    if (window.matchMedia && window.matchMedia("(max-width: 768px)").matches) {
+      return;
+    }
+    var $menu = $(".menuWrap ul.menu");
+    if (!$menu.length) {
+      return;
+    }
+    $menu.css({
+      cssFloat: "none",
+      marginLeft: "auto",
+      marginRight: "auto",
+      display: "inline-table"
+    });
+    $(".menuWrap td[align='center']").css("textAlign", "center");
+  }
+
+  centerDomainMenu();
+  setTimeout(centerDomainMenu, 400);
+  setTimeout(centerDomainMenu, 1500);
+  $(window).bind("load.kvmenu", centerDomainMenu);
+});
+</script>
+
+<script type="text/javascript" src="https://d1.endata.cx/images/personal/144762/seasons-config.js"></script>
+<script type="text/javascript" src="https://d1.endata.cx/images/personal/144762/games-hub.js"></script>
+<script type="text/javascript" src="https://d1.endata.cx/images/personal/144762/kovrov-team-service-record.js"></script>
