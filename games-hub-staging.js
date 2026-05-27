@@ -755,10 +755,6 @@
       $("#" + panelId).show().addClass("kv-tab-panel--active");
     }
 
-    if (hasHub && games.length) {
-      applySeasonVisibility();
-    }
-
     if (hasHub) {
       $(".kv-tabs button").each(function (idx) {
         var $btn = $(this);
