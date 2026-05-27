@@ -784,22 +784,19 @@ html.kv-html-theme body.kv-full-theme * {
     padding: 0 2px !important;
   }
 
-  body.kv-tabbar-guest .kv-mtabbar__inner {
-    justify-content: center !important;
-  }
-
-  body.kv-tabbar-guest .kv-mtabbar__item {
-    flex: 0 1 auto !important;
-    min-width: 120px !important;
-    max-width: 200px !important;
-    padding: 10px 20px !important;
-    border-radius: 10px !important;
-    margin: 4px 0 !important;
+  body.kv-tabbar-guest .kv-mtabbar__item--accent {
+    color: #e8ffcc !important;
     background: linear-gradient(180deg, #3d6b3d 0%, #2a4a2a 100%) !important;
+    border-radius: 8px !important;
+    margin: 2px 0 !important;
     border: 1px solid #5a8f5a !important;
   }
 
-  body.kv-tabbar-guest .kv-mtabbar__label {
-    font-size: 13px !important;
+  body.kv-tabbar-guest .kv-mtabbar__item--accent .kv-mtabbar__label {
+    font-size: 11px !important;
+  }
+
+  .kv-mtabbar__item--home.kv-mtabbar__item--active {
+    color: #cfff9f !important;
   }
 }
