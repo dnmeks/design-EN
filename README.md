@@ -46,7 +46,7 @@
 | | **Вариант A — только блок игр** | **Вариант B — полный новый вид** |
 |---|----------------------------------|-----------------------------------|
 | **Когда** | На сайте уже есть своя шапка и оформление, нужны только вкладки и карточки игр на главной | Нужен новый вид «под ключ»: шапка, меню, главная, колонка спонсоров, мобильная версия |
-| **Сколько файлов залить** | 3 | 8 |
+| **Сколько файлов залить** | 3 | 9 |
 | **Какие HTML из репозитория** | `editor-top-snippet.html` + `editor-main-home-snippet.html` | `editor-top-full-test111.html`, `editor-main-home-FIX-test111.html`, `editor-right-test111.html`, `editor-bottom-test111.html` |
 
 В названиях части шаблонов есть `test111` — это **не** отдельный сайт и не «черновик», а просто старое имя файла в репозитории. На ваш домен вставляются как есть.
@@ -84,7 +84,7 @@
 - `games-hub.js`
 - `kovrov-games-hub.css`
 
-**Вариант B — восемь файлов:**
+**Вариант B — девять файлов:**
 
 - все три из варианта A, плюс:
 - `kovrov-global.css`
@@ -92,6 +92,7 @@
 - `kovrov-responsive.css`
 - `kovrov-inner-pages.css`
 - `kovrov-team-service-record.js`
+- `kovrov-mobile-tabbar.js` — нижняя панель на телефоне (личное дело, баланс, команда, вход/выход, админка)
 
 Запишите **полный URL** каждого загруженного файла (с вашим номером `personal/…`).
 
@@ -157,7 +158,7 @@
 4. `kovrov-mobile.css`
 5. `kovrov-responsive.css`
 6. `kovrov-inner-pages.css`
-7. Потом скрипты: `seasons-config.js` → `games-hub.js` → `kovrov-team-service-record.js` (последний только для B).
+7. Потом скрипты: `seasons-config.js` → `games-hub.js` → `kovrov-team-service-record.js` → `kovrov-mobile-tabbar.js` (два последних только для B).
 
 Скрипты должны идти **после** jQuery (на Encounter она уже есть на странице — обычно ничего дополнительно подключать не нужно).
 
