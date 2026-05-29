@@ -238,87 +238,6 @@
       return scopes;
     }
 
-    /** Постер только со страницы анонса */
-    function parsePosterFromDetailsHtml(html, gid) {
-      if (!html) return null;
-      var $wrap = $("<div>").html(html);
-      var scopes = announcementScopes($wrap);
-      var i;
-      for (i = 0; i < scopes.length; i++) {
-        var poster = firstPosterInScope(scopes[i], gid);
-        if (poster) return poster;
-      }
-      return null;
-    }
-
-    var posterFetchPending = {};
-    var posterCache = {};
-
-    function fetchPosterFromGameDetails(gid, done) {
-      if (!gid) {
-        done(null);
-        return;
-      }
-      if (Object.prototype.hasOwnProperty.call(posterCache, gid)) {
-        done(posterCache[gid]);
-        return;
-      }
-      if (posterFetchPending[gid]) {
-        setTimeout(function () {
-          fetchPosterFromGameDetails(gid, done);
-        }, 250);
-        return;
-      }
-      posterFetchPending[gid] = true;
-      $.ajax({
-        url: "/GameDetails.aspx?gid=" + encodeURIComponent(gid),
-        type: "GET",
-        dataType: "html",
-        cache: true
-      })
-        .done(function (html) {
-          var poster = parsePosterFromDetailsHtml(html, gid);
-          posterCache[gid] = poster || null;
-          done(poster);
-        })
-        .fail(function () {
-          posterCache[gid] = null;
-          done(null);
-        })
-        .always(function () {
-          posterFetchPending[gid] = false;
-        });
-    }
-
-    function refreshPostersFromAnnouncements() {
-      if (!hasHub || !games.length) return;
-      var pending = 0;
-      var dirty = false;
-
-      function maybeFlush() {
-        if (pending > 0) return;
-        if (!dirty) return;
-        fillAllGrids();
-        initKvThumbZoom();
-      }
-
-      var i;
-      for (i = 0; i < games.length; i++) {
-        (function (g) {
-          pending++;
-          fetchPosterFromGameDetails(g.id, function (poster) {
-            pending--;
-            if (poster && poster !== g.poster) {
-              g.poster = poster;
-              dirty = true;
-            }
-            maybeFlush();
-          });
-        })(games[i]);
-      }
-      maybeFlush();
-    }
-
     function shortTimeLeft(value) {
       return String(value || "")
         .split(" ")
@@ -541,6 +460,8 @@
             ? "live"
             : "active";
 
+      var localPoster = firstPosterInScope($table, gid);
+
       return {
         id: gid,
         num: num,
@@ -561,7 +482,7 @@
         url: href,
         playUrl: playUrl,
         icon: iconUrl(zone),
-        poster: null
+        poster: localPoster || null
       };
     }
 
@@ -809,12 +730,6 @@
       var $d1 = $("#divCalendar");
       var $d2 = $("#divCalendar2");
       if (mobile) {
-        if ($d1.length) {
-          $d1.empty();
-        }
-        if ($d2.length) {
-          $d2.empty();
-        }
         return;
       }
       var sl = [], j;
@@ -822,10 +737,8 @@
         if (filters.season(games[j])) sl.push(games[j]);
       }
 
-      /* Календарь домена на десктопе не показываем — только сезон */
-      if ($d1.length) {
-        $d1.empty();
-      }
+      /* Календарь домена: не .empty() — consCommon.js пишет в #divCalendar (иначе innerHTML null).
+         Скрытие — CSS .kv-calendar-wrap--domain */
       if ($d2.length) {
         $d2.html(calRenderHtml(sl, true));
       }
@@ -938,9 +851,6 @@
       if (count("live") > 0) defaultTab = "live";
       else if (count("upcoming") === 0 && count("all") > 0) defaultTab = "all";
       showTab(defaultTab);
-
-      refreshPostersFromAnnouncements();
-      setTimeout(refreshPostersFromAnnouncements, 1500);
     }
 
     $active.add($coming).addClass("kv-legacy-hidden");
